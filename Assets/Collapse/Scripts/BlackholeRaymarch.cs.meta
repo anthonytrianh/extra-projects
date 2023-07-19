@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: d4025ee0d1fffb24e9dcf5c2255df28b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - blackHoleRayMarching: {fileID: 2100000, guid: 82a1c5cc0c47c62429c401ea0bcf0605, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

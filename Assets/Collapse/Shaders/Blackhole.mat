@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Blackhole
+  m_Shader: {fileID: 4800000, guid: 0e2108305f177844a899d57412164d86, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: d873a632cd169954fa5785c3281fd1ed, type: 3}
+        m_Scale: {x: 4.73, y: 1.89}
+        m_Offset: {x: 0, y: 0}
+    - _SecondaryNoiseTex:
+        m_Texture: {fileID: 2800000, guid: 06bdfc266d2edd646a1b2c0f5deede72, type: 3}
+        m_Scale: {x: 15.03, y: 5.3}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CenterHeatIntensity: 8.14
+    - _CenterHeatMax: 1.31
+    - _CenterHeatMin: 0.402
+    - _DiskInnerRadius: 0.44
+    - _DiskInnterRadius: 0.555
+    - _DiskOuterRadius: 1
+    - _DiskWidth: 0.02
+    - _DopplerBeamingFactor: -85.53
+    - _Gravity: 3.3
+    - _HueRadius: 0.654
+    - _HueShiftFactor: 0.01
+    - _NoiseSpeed: -0.91
+    - _SchwarzschildRadius: 0.249
+    - _SecondaryNoiseCutoff: 0.069
+    - _SecondaryNoiseSmoothness: 0.68
+    - _SecondaryNoiseSpeed: -4
+    - _StepSize: 0.609
+    - _Steps: 257.06
+    m_Colors:
+    - _DiskColor: {r: 0.24313726, g: 1.6078432, b: 1.1843138, a: 0.77254903}
+    - _GravityAdjust: {r: 1, g: -0.07, b: 0, a: 0}
+  m_BuildTextureStacks: []
