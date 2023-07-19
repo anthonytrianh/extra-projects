@@ -85,8 +85,8 @@ Shader "Anthony/Experimental/Ocean"
     }
     CGINCLUDE
 
-    #include "../Code/Shaders/Includes/RGBShadersShared.cginc"
-    #include "../Code/Shaders/Includes/RGBLighting.cginc"
+    #include "RGBShadersShared.cginc"
+    #include "RGBLighting.cginc"
 
     #define SMOOTHSTEP_AA 0.01
 

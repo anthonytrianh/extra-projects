@@ -29,8 +29,8 @@ Shader "Custom/AmuletGem"
         #pragma surface surf Standard fullforwardshadows
         #pragma target 3.5
 
-        #include "../Code/Shaders/Includes/ShaderMaths.cginc"
-        #include "../Code/Shaders/Includes/RGBLighting.cginc"
+        #include "ShaderMaths.cginc"
+        #include "RGBLighting.cginc"
 
         sampler2D _MainTex;
          
