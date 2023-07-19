@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Underwater
+  m_Shader: {fileID: 4800000, guid: 2e7a3ebc60566764a8d45a0dfd2d8f3e, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _CausticsTex:
+        m_Texture: {fileID: 2800000, guid: c7f46ec2cc7de6845b5d4a71014d5f31, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 8400000, guid: ad7d28cd908f42f4ea336869993db732, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WaterOnlyTex:
+        m_Texture: {fileID: 8400000, guid: 07cfba843d9254443a533792f989d613, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WetBump:
+        m_Texture: {fileID: 2800000, guid: 4f9e4589299dcc34fa5fd3c9e1e8876f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CausticsBrightness: 4.36
+    - _CausticsSpeed: 0.15
+    - _CausticsTiling: 0.25
+    - _FogDensity: 4.8
+    - _FogScale: 0.59
+    - _HeightFogDensity: 10
+    - _HeightFogDepth: 10
+    - _LensDistortionStrength: -0.21
+    - _LensDistortionTightness: 9.3
+    - _SSSOpacity: 0.94
+    - _StartDistance: 0
+    - _UnderwaterCausticsStrength: 0.76
+    - _WaterlineThickness: 0.0269
+    - _WetStrength: 0.08
+    m_Colors:
+    - _DeepColor: {r: 0.032811187, g: 0.066037714, b: 0.066037714, a: 1}
+    - _ShallowColor: {r: 0.39112374, g: 0.6037736, b: 0.5715539, a: 1}
+    - _UnderwaterA: {r: 0.023733228, g: 0.09433961, b: 0.08574844, a: 1}
+    - _UnderwaterB: {r: 0.16037738, g: 0.12215757, b: 0.112970226, a: 1}
+    - _WaveA: {r: 1, g: 0, b: 0.5, a: 10}
+    - _WaveB: {r: 0, g: 1, b: 0.25, a: 20}
+    - _WetTileOffset: {r: 1, g: 0.5625, b: 0.39, a: -0.15}
+  m_BuildTextureStacks: []
