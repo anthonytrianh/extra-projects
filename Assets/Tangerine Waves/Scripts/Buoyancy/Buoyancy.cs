@@ -8,9 +8,11 @@ namespace Buoyancy
     {
         private static int _WaveA = Shader.PropertyToID("_WaveA");
         private static int _WaveB = Shader.PropertyToID("_WaveB");
+        private static int _WaveStrength = Shader.PropertyToID("_WavesStrength");
 
         static Material LastMat;
         public static Vector4[] Waves;
+        static float WaveStrength = 1f;
 
         public static float SampleWaves(Vector3 position, Material waterMat, float waterLevel, float rollStrength, out Vector3 normal, bool TwoWavesOnly = true)
         {
@@ -36,6 +38,7 @@ namespace Buoyancy
                     Waves = new Vector4[2];
                     Waves[0] = waterMat.GetVector(_WaveA);
                     Waves[1] = waterMat.GetVector(_WaveB);
+                    WaveStrength = waterMat.GetFloat(_WaveStrength);
                 }
 
                 // Assign material
@@ -62,7 +65,7 @@ namespace Buoyancy
             currentNormal = new Vector3(currentNormal.x * rollStrength, currentNormal.y, currentNormal.z * rollStrength);
 
             normal = currentNormal.normalized;
-            return offset;
+            return offset * WaveStrength;
         }
     }
 

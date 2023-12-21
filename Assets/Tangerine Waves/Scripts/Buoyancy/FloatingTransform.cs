@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Buoyancy
 {
-    [ExecuteInEditMode]
+    [ExecuteAlways]
     public class FloatingTransform : MonoBehaviour
     {
         // Water
@@ -45,6 +45,7 @@ namespace Buoyancy
         }
 #endif
 
+        [ExecuteAlways]
         public void FixedUpdate()
         {
             if (!this || !this.enabled) return;

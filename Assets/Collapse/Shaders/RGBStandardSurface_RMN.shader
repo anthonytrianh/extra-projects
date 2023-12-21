@@ -111,7 +111,6 @@ Shader "Anthony/Surface/RGB Standard Roughness Metallic Normals"
             c = tex2D(_MainTex, uv) * shading;
 
             // Apply global brightness
-            APPLY_GLOBAL_BRIGHTNESS(c.rgb);
 
             // Normal Cube
             //  APPLY_NORMAL_CUBE_EFFECT(IN.worldPos, o.Normal);

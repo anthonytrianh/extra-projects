@@ -223,6 +223,9 @@ Shader "Hidden/Custom/UnderwaterPostProcessVersion"
             float3 finalColor = lerp(distortedCol, underwaterColor, cutoff * (1- waterBackfaceMask));
             finalColor += caustics;
 
+            // this only
+            finalColor = distortedCol;
+
             return float4(finalColor, 1);
         }
 
