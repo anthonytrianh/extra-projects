@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Shader Experiment #4/Shader Exp 4.unity
     guid: 53f8a3d0bd9534146b0e0271144bc0e4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Dream Pool/Dream Pool.unity
     guid: fd0254a3c266c784ca8c4b0f98c7e25e
+  - enabled: 1
+    path: Assets/Curry/Curry.unity
+    guid: dee4fc997c14de14fb6adb85f44d62d1
   m_configObjects: {}
