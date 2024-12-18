@@ -1,5 +1,5 @@
 // From: https://www.youtube.com/watch?v=ABWzKYc6UQ0
-Shader "Custom/Rain Ripples"
+Shader "Custom/Rain Ripples Masked"
 {
     Properties
     {
@@ -7,6 +7,7 @@ Shader "Custom/Rain Ripples"
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
+        _Cutoff ("Cutoff", Range(0, 1)) = 0.33
         
         [Header(Rain)][Space]
         [Header(RippleMain)][Space]
@@ -27,6 +28,17 @@ Shader "Custom/Rain Ripples"
         _RipplesOffset2 ("Ripple Offset 2", Vector) = (-0.5, 0.3, 0, 0)
         _RipplesOffset3 ("Ripple Offset 3", Vector) = (0.44, 0.8, 0, 0)
         _RipplesOffset4 ("Ripple Offset 4", Vector) = (0.55, -0.7, 0, 0)
+        
+        [Header(Puddles)][Space]
+        _PuddlesTex ("Puddle Mask", 2D) = "white" {}
+        _PuddlesCutoff ("Puddles Cutoff", Range(0, 1)) = 0.5
+        _PuddlesSmoothness ("Puddles Smoothness", Range(0, 0.5)) = 0.1
+        _PuddlesContrast ("Puddles Contrast", Float) = 1
+        
+        [Header(Reflections)][Space]
+        _ReflectionTex("Reflection Texture", 2D) = "black" {}
+        _Reflectivity ("Reflectivity", Range(0, 1)) = 0.9
+        _ReflectDistortionStrength ("Reflection Distortion Strength", Float) = 0.2
     }
     
     CGINCLUDE
@@ -37,22 +49,37 @@ Shader "Custom/Rain Ripples"
     {
         float2 uv_MainTex;
         float3 worldPos;
+        float4 screenPos;
     };
 
     sampler2D _MainTex;
     half _Glossiness;
     half _Metallic;
     fixed4 _Color;
+    float _Cutoff;
     
+    sampler2D _PuddlesTex;
+    float4 _PuddlesTex_ST;
+    float _PuddlesCutoff;
+    float _PuddlesSmoothness;
+    float _PuddlesContrast;
+
+    sampler2D _ReflectionTex;
+    float _Reflectivity;
+    float _ReflectDistortionStrength;
     ENDCG
     
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags 
+        { 
+            "RenderType"="Transparent" 
+            "Queue"="Transparent"
+        }
         LOD 200
 
         CGPROGRAM
-        #pragma surface surf Standard fullforwardshadows
+        #pragma surface surf Standard fullforwardshadows alphatest:_Cutoff alpha:fade
         #pragma target 4.0
         
         void surf (Input i, inout SurfaceOutputStandard o)
@@ -81,7 +108,21 @@ Shader "Custom/Rain Ripples"
             // Output
             o.Normal = ripplesNormal;
 
-            //o.Albedo = ripple;
+            //////////////////////////////
+            // Puddles masking
+            float2 puddlesUV = (i.worldPos.xz / _PuddlesTex_ST.xy) + _PuddlesTex_ST.zw;
+            fixed puddleSample = tex2D(_PuddlesTex, puddlesUV);
+            fixed puddleMask = smoothstep(_PuddlesCutoff, _PuddlesCutoff + _PuddlesSmoothness, puddleSample);
+            puddleMask = pow(puddleMask, _PuddlesContrast);
+            o.Alpha = puddleMask;
+            clip(puddleMask - _Cutoff);
+
+            ////////////////////////////////
+            // Reflection
+            float2 screenUV = i.screenPos.xy / i.screenPos.w;
+            float2 reflectionUV = screenUV - o.Normal.xy * _ReflectDistortionStrength;
+            float4 reflectionSample = tex2D(_ReflectionTex, reflectionUV);
+            o.Emission = lerp(0, reflectionSample.rgb, _Reflectivity) * puddleMask;
         }
         ENDCG
     }
