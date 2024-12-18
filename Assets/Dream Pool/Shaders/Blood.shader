@@ -44,7 +44,7 @@ Shader "Anthony/Blood"
             // Metallic and smoothness come from slider variables
             o.Specular = _SpecularColor * c.a;
             o.Smoothness = _Glossiness;
-            o.Alpha = c.a;
+            o.Alpha = c.r;
         }
         ENDCG
     }

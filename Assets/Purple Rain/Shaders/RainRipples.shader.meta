@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: b080498043efeca4680ab1569279dc5a
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _MainTex: {instanceID: 0}
+  - _RipplesTex: {fileID: 2800000, guid: c15f3f589df191f48914945c70306a7f, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
