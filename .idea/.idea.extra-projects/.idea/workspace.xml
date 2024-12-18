@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98813d8c-388d-412d-aef3-95d46781912a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Curry/Textures/Noise_Clouds_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Curry/Textures/Noise_Clouds_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LucirgoSoft/LCRG Skyboxes/Nigth/Materials/LS SkyBox Nigth 03.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LucirgoSoft/LCRG Skyboxes/Nigth/Materials/LS SkyBox Nigth 03.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.extra-projects/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.extra-projects/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Materials/mRainGround.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Materials/mRainGround.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Materials/mRainRippleMasked.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Materials/mRainRippleMasked.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Shaders/RainRipples.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Shaders/RainRipples.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain/Lightmap-0_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain/Lightmap-0_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Shaders/Rain.cginc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Shaders/Rain.cginc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Shaders/RainRipplesMasked.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Shaders/RainRipplesMasked.shader" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +96,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1734547759579</updated>
-      <workItem from="1734547761619" duration="3263000" />
+      <workItem from="1734547761619" duration="5760000" />
     </task>
     <servers />
   </component>

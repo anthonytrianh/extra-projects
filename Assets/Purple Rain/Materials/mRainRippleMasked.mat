@@ -58,14 +58,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _PuddlesTex:
         m_Texture: {fileID: 2800000, guid: aa721edbebbad5143975f43590048211, type: 3}
-        m_Scale: {x: 70, y: 70}
-        m_Offset: {x: 0.19, y: -0.09}
+        m_Scale: {x: 80, y: 80}
+        m_Offset: {x: 0.16, y: -0.06}
     - _ReflectionTex:
         m_Texture: {fileID: 8400000, guid: a53e5887c0ac623488e85b37478aa8c6, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RipplesTex:
         m_Texture: {fileID: 2800000, guid: c15f3f589df191f48914945c70306a7f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WindRippleTex:
+        m_Texture: {fileID: 2800000, guid: 5fe0bf1277cc38a43b71a4a8192e13a6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -82,24 +86,26 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PuddlesContrast: 1.41
-    - _PuddlesCutoff: 0.163
-    - _PuddlesSmoothness: 0.134
+    - _PuddlesCutoff: 0.127
+    - _PuddlesSmoothness: 0.236
     - _ReflectDistortionStrength: -0.2
-    - _Reflectivity: 0.608
-    - _RippleContrast: 20
+    - _Reflectivity: 1
+    - _RippleContrast: 21.4
     - _RippleCount: 4
-    - _RippleIntensity: 0.5
+    - _RippleIntensity: 0.427
     - _RipplePeriod: 3
-    - _RippleStrength: 0.24
+    - _RippleStrength: 0.55
     - _RipplesUvScale: 14.51
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _WindRipple: 0.682
+    - _WindRippleOpacity: 0.212
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.2735849, g: 0.2647358, b: 0.2647358, a: 1}
+    - _Color: {r: 0.106341876, g: 0.052306365, b: 0.16037738, a: 0.8509804}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RipplesOffset1: {r: 0, g: 0, b: 0, a: 0}
     - _RipplesOffset2: {r: -0.5, g: 0.3, b: 0, a: 0}
@@ -111,4 +117,7 @@ Material:
     - _RipplesTimeScales: {r: 1, g: 0.8, b: 1.54, a: 1.1}
     - _RipplesWeightOffsets: {r: 0, g: 0.25, b: 0.36, a: 0.63}
     - _RipplesWeights: {r: 0, g: 0.25, b: 0.5, a: 0.75}
+    - _WindRippleParams1: {r: 7.83, g: 17, b: 0.4, a: 0.02}
+    - _WindRippleParams2: {r: 4.22, g: 8, b: -0.1, a: 0.3}
+    - _WindRippleStrength: {r: 0.1, g: 0.3, b: 0, a: 0}
   m_BuildTextureStacks: []

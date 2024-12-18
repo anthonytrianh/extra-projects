@@ -29,6 +29,14 @@ Shader "Custom/Rain Ripples Masked"
         _RipplesOffset3 ("Ripple Offset 3", Vector) = (0.44, 0.8, 0, 0)
         _RipplesOffset4 ("Ripple Offset 4", Vector) = (0.55, -0.7, 0, 0)
         
+        [Header(RippleWind)][Space]
+        _WindRippleTex ("Wind Ripples Texture", 2D) = "bump" {}
+        _WindRippleParams1 ("Wind Ripples 1 Tiling (XY) Speed (ZW)", Vector) = (20, 17, .4, .02)
+        _WindRippleParams2 ("Wind Ripples 2 Tiling (XY) Speed (ZW)", Vector) = (5, 8, -.1, .4)
+        _WindRippleStrength ("Wind Strength Min Max", Vector) = (0.1, 0.5, 0, 0)
+        _WindRipple ("Wind Ripples", Range(0, 1)) = 1
+        _WindRippleOpacity ("Wind Ripple Opacity", Range(0, 1)) = 1
+        
         [Header(Puddles)][Space]
         _PuddlesTex ("Puddle Mask", 2D) = "white" {}
         _PuddlesCutoff ("Puddles Cutoff", Range(0, 1)) = 0.5
@@ -103,7 +111,11 @@ Shader "Custom/Rain Ripples Masked"
             float3 ripples4 = RainRippleLayer(ripplesUV, _RipplesTilings.w, _RipplesOffset4, _RipplesTimeScales.w, _RipplesTimeOffsets.w ,_RipplesWeightOffsets.w);
 
             float4 rippleWeights = saturate((_RippleIntensity - _RipplesWeightOffsets) * 4);
-            float3 ripplesNormal = BlendRipplesNormals4(rippleWeights, ripples1, ripples2, ripples3, ripples4);
+            float3 ringsNormal = BlendRipplesNormals4(rippleWeights, ripples1, ripples2, ripples3, ripples4);
+
+            // Wind ripples
+            float3 windRipplesNormal = WindRipple(i.worldPos.xz);
+            float3 ripplesNormal = float3(ringsNormal.xy + windRipplesNormal.xy, 1);
         
             // Output
             o.Normal = ripplesNormal;
@@ -123,6 +135,8 @@ Shader "Custom/Rain Ripples Masked"
             float2 reflectionUV = screenUV - o.Normal.xy * _ReflectDistortionStrength;
             float4 reflectionSample = tex2D(_ReflectionTex, reflectionUV);
             o.Emission = lerp(0, reflectionSample.rgb, _Reflectivity) * puddleMask;
+
+            o.Alpha *= _Color.a;
         }
         ENDCG
     }

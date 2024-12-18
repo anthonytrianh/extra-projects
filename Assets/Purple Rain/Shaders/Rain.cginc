@@ -86,4 +86,34 @@ inline float3 BlendRipplesNormals4(float4 weights, float3 normal1, float3 normal
     return normalize(float3(combinedRG, normalZ));
 }
 
+/////////////////////////////////////////////
+// Wind Ripple
+
+sampler2D _WindRippleTex;
+float4 _WindRippleParams1;
+float4 _WindRippleParams2;
+float2 _WindRippleStrength;
+float _WindRipple;
+float _WindRippleOpacity;
+
+inline float3 CalculateWindRippleNormal(float2 worldUV, float4 windParams)
+{
+    float2 windRippleUV = worldUV / windParams.xy + _Time.y * windParams.zw;
+    return UnpackNormal(tex2D(_WindRippleTex, windRippleUV));
+}
+
+inline float3 WindRipple(float2 worldUV)
+{
+    float3 windNormal1 = CalculateWindRippleNormal(worldUV, _WindRippleParams1);
+    float3 windNormal2 = CalculateWindRippleNormal(worldUV, _WindRippleParams2);
+
+    float wind = lerp(_WindRippleStrength.x, _WindRippleStrength.y, _WindRipple);
+    // Blend wind normals
+    float2 normalXY = windNormal1.xy + windNormal2.xy;
+    normalXY *= wind;
+    float normalZ = windNormal1.z * windNormal2.z;
+    float3 windRipplesNormal = normalize(float3(normalXY, normalZ));
+    return lerp(float3(0, 0, 1), windRipplesNormal, _WindRippleOpacity);
+}
+
 #endif
