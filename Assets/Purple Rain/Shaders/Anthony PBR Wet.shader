@@ -39,11 +39,41 @@ Shader "Anthony/Anthony PBR Wet"
         _Wetness ("Wetness", Range(0, 1)) = 0.5
         // How water absorbent is the surface?
         _Porousness ("Porousness", Float) = 0.2
+        
+        [Space]
+        [Header(Grunge)][Space]
+        _GrungeTex ("Grunge Map", 2D) = "black" {}
+        _GrungeOpacity ("Grunge Opacity", Range(0, 1)) = 0.4
+        _GrungeCutoff ("Grunge Cutoff", Range(0, 1)) = 0.5
+        _GrungeSmoothness ("Grunge Smoothness", Range(0, 0.5)) = 0.15
+        _GrungeContrast ("Grunge Contrast", Float) = 1.2
+        [Toggle(INVERT_GRUNGE)] _InvertGrunge ("Invert Grunge", Float) = 0
     }
     
     CGINCLUDE
     #include "AnthonyPBR.cginc"
     #include "Wetness.cginc"
+    #pragma shader_feature INVERT_GRUNGE
+
+    sampler2D _GrungeTex;
+    float4 _GrungeTex_ST;
+    float _GrungeOpacity;
+    float _GrungeCutoff;
+    float _GrungeSmoothness;
+    float _GrungeContrast;
+
+    float3 CalculateGrungeColor(float2 worldXZ, float3 albedo)
+    {
+        float2 grungeUV = worldXZ / _GrungeTex_ST.xy + _GrungeTex_ST.zw;
+        float3 grungeSample = tex2D(_GrungeTex, grungeUV);
+        float grunge = smoothstep(_GrungeCutoff, _GrungeCutoff + _GrungeSmoothness, grungeSample);
+        grunge = saturate(pow(grunge, _GrungeContrast));
+        #ifdef INVERT_GRUNGE
+            grunge = 1 - grunge;
+        #endif
+        return lerp(albedo, albedo * grunge, _GrungeOpacity);
+    }
+    
     ENDCG
     
     SubShader
@@ -70,6 +100,9 @@ Shader "Anthony/Anthony PBR Wet"
             o.Normal = CalculateNormals(uv);
             o.Emission = CalculateEmissiveColor(uv);
             o.Alpha = color.a;
+
+            // Grunge
+            o.Albedo = CalculateGrungeColor(i.worldPos.xz, o.Albedo);
         }
         
         ENDCG

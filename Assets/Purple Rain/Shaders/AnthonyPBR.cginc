@@ -13,6 +13,7 @@ struct Input
     float3 worldPos;
     float3 viewDir;
     float3 objPos;
+    float3 debug;
 };
 
 // Albedo
@@ -107,14 +108,18 @@ float3 CalculateNormals(float2 uv)
     return UnpackScaleNormal(tex2D(_BumpTex, uv), _BumpStrength);
 }
 
+float3 ComputeObjectPosition_Vertex(float3 vertex)
+{
+    // Compute local object's y position, used for vertical gradient
+    return float3(vertex.x, (vertex.y + 1) * 0.5, vertex.z);
+}
+
 /////////////////////////////////////////
 /// Standard PBR functions
 void vert_pbr(inout appdata_full v, out Input o) 
 {
     UNITY_INITIALIZE_OUTPUT(Input, o);
-    o.objPos = v.vertex;
-    // Compute local object's y position, used for vertical gradient
-    o.objPos.y = (v.vertex.y + 1) * 0.5;
+    o.objPos = ComputeObjectPosition_Vertex(v.vertex);
 }
 
 void surf_pbr_opaque(Input i, inout SurfaceOutputStandard o)

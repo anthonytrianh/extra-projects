@@ -3,7 +3,22 @@ guid: 360a80d7f0a0ab34fb9dab59b2ede049
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main Stalk
+    second: {fileID: 2100000, guid: c39797d4f44fd4246baa0c1e850ba0e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stalk
+    second: {fileID: 2100000, guid: 6cf64e83a9e760d459849d151e97764a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wisteria
+    second: {fileID: 2100000, guid: 75763293c9a4df64e8f051fe6bb5f081, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

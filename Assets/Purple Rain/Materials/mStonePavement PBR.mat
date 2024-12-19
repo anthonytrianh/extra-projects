@@ -10,6 +10,7 @@ Material:
   m_Name: mStonePavement PBR
   m_Shader: {fileID: 4800000, guid: b4575468e8ceb0440ad45950cf8b567a, type: 3}
   m_ValidKeywords:
+  - INVERT_GRUNGE
   - PARALLAX
   m_InvalidKeywords:
   - _METALLICGLOSSMAP
@@ -52,6 +53,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _GrungeTex:
+        m_Texture: {fileID: 2800000, guid: 9625c83258169b54786d6ae429c84b65, type: 3}
+        m_Scale: {x: 45, y: 45}
+        m_Offset: {x: 0.04, y: -0.22}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 6e854fe7a3efdfd47b2f617996992b74, type: 3}
         m_Scale: {x: 5, y: 5}
@@ -92,7 +97,12 @@ Material:
     - _GlossMapScale: 0.499
     - _Glossiness: 0.93
     - _GlossyReflections: 1
+    - _GrungeContrast: 1.19
+    - _GrungeCutoff: 0.065
+    - _GrungeOpacity: 0.462
+    - _GrungeSmoothness: 0.166
     - _Height: 0
+    - _InvertGrunge: 1
     - _Metallic: 0.56
     - _Mode: 0
     - _OcclusionStrength: 1
