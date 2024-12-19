@@ -9,6 +9,10 @@ Shader "Anthony/Foliage Wind Translucent"
         _Specular ("Specular", Range(0, 1)) = 0.07815
         _SpecColor ("Specular Color", Color) = (0.5, 0.5, 0.5, 1)
         
+        [Header(Normals)][Space]
+        _BumpTex("Normal Map", 2D) = "bump" {}
+        _BumpStrength("Bump Strength", Float) = 1
+        
         [Space]
         [Header(Wind)][Space]
         _WindScale ("Wind Scale", Vector) = (1, 1, 0, 0)
@@ -69,39 +73,43 @@ Shader "Anthony/Foliage Wind Translucent"
     float _WindStrength;
 
     #include "Translucent.cginc"
+
+    void vert_foliage(inout appdata_full v, out Input o) 
+    {
+        UNITY_INITIALIZE_OUTPUT(Input, o);
+        o.objPos = ComputeObjectPosition_Vertex(v.vertex);
+
+        ///////////////////////////
+        // Wind
+        //!! World Position must be manually calculated here, o.worldPos is not yet calculated at this stage
+        float3 worldPosition = mul(unity_ObjectToWorld, v.vertex);
+        float2 windUV = worldPosition.xy / _WindScale.xy + _Time.y * _WindMovement.xy;
+        float noise = GradientNoise(windUV, _WindDensity);
+        float wind = noise - 0.5;
+        wind *= _WindStrength;
+        wind *= v.texcoord.y;
+
+        // Offset vertex by wind
+        v.vertex.x += wind;
+
+        o.debug = noise;
+    }
     
     ENDCG
     
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { 
+        	"RenderType"="Transparent" 
+        	"Queue" = "AlphaTest+49"
+        }
         LOD 200
 
         CGPROGRAM
         
-        #pragma surface surf_foliage Translucent fullforwardshadows vertex:vert_foliage
+        #pragma surface surf_foliage Translucent fullforwardshadows vertex:vert_foliage addshadow
         #pragma target 4.0
 
-        void vert_foliage(inout appdata_full v, out Input o) 
-        {
-            UNITY_INITIALIZE_OUTPUT(Input, o);
-            o.objPos = ComputeObjectPosition_Vertex(v.vertex);
-
-            ///////////////////////////
-            // Wind
-            //!! World Position must be manually calculated here, o.worldPos is not yet calculated at this stage
-            float3 worldPosition = mul(unity_ObjectToWorld, v.vertex);
-            float2 windUV = worldPosition.xy / _WindScale.xy + _Time.y * _WindMovement.xy;
-            float noise = GradientNoise(windUV, _WindDensity);
-            float wind = noise - 0.5;
-            wind *= _WindStrength;
-            wind *= v.texcoord.y;
-
-            // Offset vertex by wind
-            v.vertex.x += wind;
-
-            o.debug = noise;
-        }
         
         void surf_foliage(Input i, inout SurfaceOutput o)
         {
@@ -124,6 +132,43 @@ Shader "Anthony/Foliage Wind Translucent"
 
         
         ENDCG
+
+        //Note: Vertex Displacement artifact ---> Add shadow pass
+//		// ------------------------------------------------------------------
+//		//  Shadow rendering pass
+//		Pass {
+//			Name "ShadowCaster"
+//			Tags { "LightMode" = "ShadowCaster" }
+//			
+//			ZWrite On ZTest LEqual
+//
+//			CGPROGRAM
+//			#pragma vertex vert_shadow
+//			#pragma  fragment frag_shadow
+//			#pragma multi_compile_shadowcaster
+//
+//			struct v2f_shadow
+//		    {
+//		        V2F_SHADOW_CASTER;
+//		    };
+//
+//		    v2f_shadow vert_shadow(appdata_base v)
+//		    {
+//		        v2f_shadow o;
+//		        UNITY_SETUP_INSTANCE_ID(v);
+//		        UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
+//		        TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
+//		        return o;
+//		    }
+//
+//		    float4 frag_shadow(v2f_shadow i) : SV_Target
+//		    {
+//		        SHADOW_CASTER_FRAGMENT(i)
+//		    }
+//
+//			ENDCG
+//		}
+
     }
-    FallBack "Diffuse"
+    FallBack "Bumped Diffuse"
 }

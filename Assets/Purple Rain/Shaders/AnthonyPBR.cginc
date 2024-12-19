@@ -18,7 +18,7 @@ struct Input
 
 // Albedo
 sampler2D _MainTex;
-fixed4 _Color;
+half4 _Color;
 
 // Emission
 sampler2D _EmissiveTex;
