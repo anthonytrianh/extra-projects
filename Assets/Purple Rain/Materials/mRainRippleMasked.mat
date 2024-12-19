@@ -58,7 +58,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _PuddlesTex:
         m_Texture: {fileID: 2800000, guid: aa721edbebbad5143975f43590048211, type: 3}
-        m_Scale: {x: 80, y: 80}
+        m_Scale: {x: 90, y: 90}
         m_Offset: {x: 0.16, y: -0.06}
     - _ReflectionTex:
         m_Texture: {fileID: 8400000, guid: a53e5887c0ac623488e85b37478aa8c6, type: 2}
@@ -86,15 +86,15 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PuddlesContrast: 1.41
-    - _PuddlesCutoff: 0.127
-    - _PuddlesSmoothness: 0.236
+    - _PuddlesCutoff: 0.113
+    - _PuddlesSmoothness: 0.258
     - _ReflectDistortionStrength: -0.2
     - _Reflectivity: 1
     - _RippleContrast: 21.4
     - _RippleCount: 4
-    - _RippleIntensity: 0.427
+    - _RippleIntensity: 0.828
     - _RipplePeriod: 3
-    - _RippleStrength: 0.55
+    - _RippleStrength: 1.28
     - _RipplesUvScale: 14.51
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -105,13 +105,13 @@ Material:
     - _WindRippleOpacity: 0.212
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.106341876, g: 0.052306365, b: 0.16037738, a: 0.8509804}
+    - _Color: {r: 0.13053271, g: 0.07238633, b: 0.18867916, a: 0.9607843}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RipplesOffset1: {r: 0, g: 0, b: 0, a: 0}
     - _RipplesOffset2: {r: -0.5, g: 0.3, b: 0, a: 0}
     - _RipplesOffset3: {r: 0.44, g: 0.8, b: 0, a: 0}
     - _RipplesOffset4: {r: 0.55, g: -0.7, b: 0, a: 0}
-    - _RipplesTilings: {r: 17, g: 9.77, b: 7.24, a: 4.76}
+    - _RipplesTilings: {r: 20, g: 12, b: 7.24, a: 4.76}
     - _RipplesTimeOffsets: {r: 0, g: 0.2, b: 0.44, a: 0.67}
     - _RipplesTimeParams: {r: 1, g: 0.8, b: 0.92, a: 1.1}
     - _RipplesTimeScales: {r: 1, g: 0.8, b: 1.54, a: 1.1}

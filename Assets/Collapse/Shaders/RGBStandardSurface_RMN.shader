@@ -54,9 +54,7 @@ Shader "Anthony/Surface/RGB Standard Roughness Metallic Normals"
         {
             float2 uv_MainTex;
             float3 worldPos;
-            #ifdef _PARALLAX
-                float3 viewDir;
-            #endif
+            float3 viewDir;
             float3 objPos;
         };
 
@@ -86,7 +84,6 @@ Shader "Anthony/Surface/RGB Standard Roughness Metallic Normals"
             UNITY_INITIALIZE_OUTPUT(Input, o);
             o.objPos = v.vertex;
             o.objPos.y = (v.vertex.y + 1) * 0.5;
-
         }
 
         void surf (Input IN, inout SurfaceOutputStandard o)
@@ -109,12 +106,7 @@ Shader "Anthony/Surface/RGB Standard Roughness Metallic Normals"
 
             // Albedo comes from a texture tinted by color
             c = tex2D(_MainTex, uv) * shading;
-
-            // Apply global brightness
-
-            // Normal Cube
-            //  APPLY_NORMAL_CUBE_EFFECT(IN.worldPos, o.Normal);
-
+            
             float roughness = tex2D(_RoughnessTex, uv);
             float metal = tex2D(_MetallicTex, uv);
 
@@ -127,9 +119,8 @@ Shader "Anthony/Surface/RGB Standard Roughness Metallic Normals"
 
             o.Emission = tex2D(_EmissiveTex, uv) * _EmissiveColor;
 
-
-            // Debug
-            //o.Emission = IN.objPos.y;
+            //o.Albedo = IN.viewDir;
+                //GetParallaxOffset(_ParallaxTex, uv, _Height, IN.viewDir).xxx;
         }
         ENDCG
     }
