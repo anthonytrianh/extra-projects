@@ -1,4 +1,4 @@
-Shader "Anthony/Foliage Wind PBR"
+Shader "Anthony/Foliage Wind Translucent"
 {
     Properties
     {
@@ -6,6 +6,8 @@ Shader "Anthony/Foliage Wind PBR"
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
+        _Specular ("Specular", Range(0, 1)) = 0.07815
+        _SpecColor ("Specular Color", Color) = (0.5, 0.5, 0.5, 1)
         
         [Space]
         [Header(Wind)][Space]
@@ -13,6 +15,19 @@ Shader "Anthony/Foliage Wind PBR"
         _WindMovement ("Wind Movement", Vector) = (2, 1, 0, 0)
         _WindDensity ("Wind Density", Float) = 1
         _WindStrength ("Wind Strength", Float) = 0.5
+        
+        [Space]
+        [Header(Translucent)][Space]
+        //_Thickness = Thickness texture (invert normals, bake AO).
+		//_Power = "Sharpness" of translucent glow.
+		//_Distortion = Subsurface distortion, shifts surface normal, effectively a refractive index.
+		//_Scale = Multiplier for translucent glow - should be per-light, really.
+		//_SubColor = Subsurface colour.
+		_SSThickness ("Subsurface Thickness (R)", 2D) = "bump" {}
+		_SSPower ("Subsurface Power", Float) = 1.0
+		_SSDistortion ("Subsurface Distortion", Float) = 0.0
+		_SSScale ("Subsurface Scale", Float) = 0.5
+		_SSSubColor ("Subsurface Color", Color) = (1.0, 1.0, 1.0, 1.0)
     }
     
     CGINCLUDE
@@ -52,6 +67,8 @@ Shader "Anthony/Foliage Wind PBR"
     float2 _WindMovement;
     float _WindDensity;
     float _WindStrength;
+
+    #include "Translucent.cginc"
     
     ENDCG
     
@@ -62,7 +79,7 @@ Shader "Anthony/Foliage Wind PBR"
 
         CGPROGRAM
         
-        #pragma surface surf_pbr_foliage Standard fullforwardshadows vertex:vert_foliage
+        #pragma surface surf_foliage Translucent fullforwardshadows vertex:vert_foliage
         #pragma target 4.0
 
         void vert_foliage(inout appdata_full v, out Input o) 
@@ -86,7 +103,7 @@ Shader "Anthony/Foliage Wind PBR"
             o.debug = noise;
         }
         
-        void surf_pbr_foliage(Input i, inout SurfaceOutputStandard o)
+        void surf_foliage(Input i, inout SurfaceOutput o)
         {
             float2 uv = CalculateUv(i);
             float parallax = GetParallaxOffset(uv, _Height, i.viewDir);
@@ -96,8 +113,8 @@ Shader "Anthony/Foliage Wind PBR"
 
             float4 color = CalculateAlbedo(uv);
             o.Albedo = color;
-            o.Metallic = CalculateMetallic(uv);
-            o.Smoothness = CalculateSmoothness(uv);
+            o.Gloss = CalculateSmoothness(uv);
+            o.Specular = _Specular;
             o.Normal = CalculateNormals(uv);
             o.Emission = CalculateEmissiveColor(uv);
             o.Alpha = color.a;
