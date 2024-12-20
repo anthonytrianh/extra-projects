@@ -6,40 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="98813d8c-388d-412d-aef3-95d46781912a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.extra-projects/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.extra-projects/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/Built-In Samples.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/HDRP Samples 10x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/HDRP Samples 12x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/HDRP Samples 14x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/HDRP Samples 15x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/HDRP Samples 16x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/HDRP Samples 17x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/HDRP Samples.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/Sample Resources.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/URP Samples 10x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/URP Samples 12x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/URP Samples 14x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/URP Samples 15x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/URP Samples 16x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/URP Samples 17x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Examples/URP Samples.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Plugins/Editor/Templates/TemplateMenuItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ASE/Plugins/Editor/Templates/TemplateMenuItems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Plugins/EditorResources/Templates/HDRP 10x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Plugins/EditorResources/Templates/HDRP 12x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Plugins/EditorResources/Templates/HDRP 14x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Plugins/EditorResources/Templates/HDRP 15x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Plugins/EditorResources/Templates/HDRP 16x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Plugins/EditorResources/Templates/HDRP 17x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Plugins/EditorResources/Templates/URP 10x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Plugins/EditorResources/Templates/URP 12x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Plugins/EditorResources/Templates/URP 14x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Plugins/EditorResources/Templates/URP 15x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Plugins/EditorResources/Templates/URP 16x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ASE/Plugins/EditorResources/Templates/URP 17x.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Materials/mMeshLight Orange.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Materials/mMeshLight Orange.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Scripts/CandleLightController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Scripts/CandleLightController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Shaders/MeshLight.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Shaders/MeshLight.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Shaders/MeshLight.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Shaders/MeshLight.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Materials/mCandleLightDecal.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Materials/mCandleLightDecal.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Models/ofrenda cloth.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Models/ofrenda cloth.blend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Models/ofrenda cloth.blend1" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Models/ofrenda cloth.blend1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain 4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain 4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain 4/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain 4/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain 4/Lightmap-0_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain 4/Lightmap-0_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain 4/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain 4/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain 4/Lightmap-1_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain 4/Lightmap-1_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain 4/Lightmap-1_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Purple Rain 4/Lightmap-1_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Purple Rain/Shaders/FoliageWindTranslucent.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Purple Rain/Shaders/FoliageWindTranslucent.shader" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +104,7 @@
       <updated>1734547759579</updated>
       <workItem from="1734547761619" duration="5760000" />
       <workItem from="1734628563387" duration="8626000" />
-      <workItem from="1734716068240" duration="4220000" />
+      <workItem from="1734716068240" duration="6494000" />
     </task>
     <servers />
   </component>

@@ -5,9 +5,10 @@ Shader "Anthony/Foliage Wind Translucent"
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
-        _Metallic ("Metallic", Range(0,1)) = 0.0
         _Specular ("Specular", Range(0, 1)) = 0.07815
         _SpecColor ("Specular Color", Color) = (0.5, 0.5, 0.5, 1)
+    	_Cutoff ("Cutoff", Range(0, 1)) = 0.1
+    	[Toggle(GREYSCALE_ALPHA)] _GreyscaleCutoff ("Greyscale as Alpha", Float) = 0
         
         [Header(Normals)][Space]
         _BumpTex("Normal Map", 2D) = "bump" {}
@@ -31,7 +32,7 @@ Shader "Anthony/Foliage Wind Translucent"
 		_SSPower ("Subsurface Power", Float) = 1.0
 		_SSDistortion ("Subsurface Distortion", Float) = 0.0
 		_SSScale ("Subsurface Scale", Float) = 0.5
-		_SSSubColor ("Subsurface Color", Color) = (1.0, 1.0, 1.0, 1.0)
+		[HDR] _SSSubColor ("Subsurface Color", Color) = (1.0, 1.0, 1.0, 1.0)
     }
     
     CGINCLUDE
@@ -44,6 +45,8 @@ Shader "Anthony/Foliage Wind Translucent"
     float2 _WindMovement;
     float _WindDensity;
     float _WindStrength;
+
+    float _Cutoff;
 
     void vert_foliage(inout appdata_full v, out Input o) 
     {
@@ -81,6 +84,8 @@ Shader "Anthony/Foliage Wind Translucent"
         #pragma surface surf_foliage Translucent fullforwardshadows vertex:vert_foliage addshadow
         #pragma target 4.0
 
+        #pragma shader_feature GREYSCALE_ALPHA
+
         
         void surf_foliage(Input i, inout SurfaceOutput o)
         {
@@ -98,48 +103,15 @@ Shader "Anthony/Foliage Wind Translucent"
             o.Emission = CalculateEmissiveColor(uv);
             o.Alpha = color.a;
 
+    		#ifdef GREYSCALE_ALPHA
+			clip(tex2D(_MainTex, uv).r - _Cutoff);
+			#endif
+    	
+    	
             //o.Albedo = i.debug;
         }
-
         
         ENDCG
-
-        //Note: Vertex Displacement artifact ---> Add shadow pass
-//		// ------------------------------------------------------------------
-//		//  Shadow rendering pass
-//		Pass {
-//			Name "ShadowCaster"
-//			Tags { "LightMode" = "ShadowCaster" }
-//			
-//			ZWrite On ZTest LEqual
-//
-//			CGPROGRAM
-//			#pragma vertex vert_shadow
-//			#pragma  fragment frag_shadow
-//			#pragma multi_compile_shadowcaster
-//
-//			struct v2f_shadow
-//		    {
-//		        V2F_SHADOW_CASTER;
-//		    };
-//
-//		    v2f_shadow vert_shadow(appdata_base v)
-//		    {
-//		        v2f_shadow o;
-//		        UNITY_SETUP_INSTANCE_ID(v);
-//		        UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
-//		        TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
-//		        return o;
-//		    }
-//
-//		    float4 frag_shadow(v2f_shadow i) : SV_Target
-//		    {
-//		        SHADOW_CASTER_FRAGMENT(i)
-//		    }
-//
-//			ENDCG
-//		}
-
     }
     FallBack "Bumped Diffuse"
 }
