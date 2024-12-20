@@ -81,26 +81,26 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _BumpStrength: 1.33
+    - _BumpStrength: 0.9
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Emission: 1
     - _FlipY: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.24
+    - _Glossiness: 0.15
     - _GlossyReflections: 1
     - _GrungeContrast: 1.5
-    - _GrungeCutoff: 0.08
-    - _GrungeOpacity: 0.44
-    - _GrungeSmoothness: 0.157
+    - _GrungeCutoff: 0
+    - _GrungeOpacity: 0.53
+    - _GrungeSmoothness: 0.228
     - _Height: 0
     - _InvertGrunge: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Porousness: 1.23
+    - _Porousness: 1.02
     - _SmoothnessTextureChannel: 0
     - _Specular: 0.22
     - _SpecularHighlights: 1
@@ -108,9 +108,9 @@ Material:
     - _UVSec: 0
     - _UseParallax: 0
     - _VerticalGradient: 0
-    - _Wetness: 0.8
-    - _WetnessColorDarken: 0.56
-    - _WetnessSaturation: 1.47
+    - _Wetness: 0.82
+    - _WetnessColorDarken: 0.67
+    - _WetnessSaturation: 1.49
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.75866187, g: 0.6542745, b: 0.7830189, a: 1}
