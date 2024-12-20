@@ -19,22 +19,28 @@ public class CandleLightController : MonoBehaviour
 
     Renderer renderer => GetComponent<Renderer>();
 
+    [SerializeField] [ColorUsage(true, true)] Color colorIn = Color.green;
+    [SerializeField] [ColorUsage(true, true)] Color colorOut = Color.yellow;
+    [SerializeField] float colorContrast = 0.88f;
     [SerializeField] float timeOffset = 0;
     
     void Start()
     {
-        SetTimeOffset();
+        SetLightMaterialParams();
     }
 
     void OnValidate()
     {
-        SetTimeOffset();
+        SetLightMaterialParams();
     }
     
-    void SetTimeOffset()
+    void SetLightMaterialParams()
     {
         renderer.GetPropertyBlock(Mpb);
 
+        Mpb.SetColor("_ColorIn", colorIn);
+        Mpb.SetColor("_ColorOut", colorOut);
+        Mpb.SetFloat("_ColorGradientContrast", colorContrast);
         Mpb.SetFloat("_TimeOffset", timeOffset);
         
         renderer.SetPropertyBlock(Mpb);
