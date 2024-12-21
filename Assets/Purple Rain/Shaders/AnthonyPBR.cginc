@@ -11,6 +11,7 @@ struct Input
 {
     float2 uv_MainTex;
     float3 worldPos;
+    float3 worldNormal; INTERNAL_DATA
     float3 viewDir;
     float3 objPos;
     float3 debug;
