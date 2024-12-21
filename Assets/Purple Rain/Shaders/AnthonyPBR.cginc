@@ -53,6 +53,15 @@ float4 _VerticalColorBot;
 /////////////////////////////////////////
 /// Calculation functions
 
+#define APBR_uv(i) float2 uv = CalculateUv(i);
+#define APBR_Albedo(o, uv) float4 color = CalculateAlbedo(uv); \
+                            o.Albedo = CalculateAlbedo(uv);
+#define APBR_Alpha(o, color) o.Alpha = color.a;
+#define APBR_Metal(o, uv) o.Metallic = CalculateMetallic(uv);
+#define APBR_Smoothness(o, uv) o.Smoothness = CalculateSmoothness(uv);
+#define APBR_Normal(o, uv) o.Normal = CalculateNormals(uv);
+#define APBR_Emission(o, uv) o.Emission = CalculateEmissiveColor(uv);
+
 #pragma shader_feature FLIP_V
 float2 CalculateUv(Input i)
 {
@@ -125,19 +134,18 @@ void vert_pbr(inout appdata_full v, out Input o)
 
 void surf_pbr_opaque(Input i, inout SurfaceOutputStandard o)
 {
-    float2 uv = CalculateUv(i);
+    APBR_uv(i);
     float parallax = GetParallaxOffset(uv, _Height, i.viewDir);
     #ifdef PARALLAX
     uv += parallax;
     #endif
 
-    float4 color = CalculateAlbedo(uv);
-    o.Albedo = color;
-    o.Metallic = CalculateMetallic(uv);
-    o.Smoothness = CalculateSmoothness(uv);
-    o.Normal = CalculateNormals(uv);
-    o.Emission = CalculateEmissiveColor(uv);
-    o.Alpha = color.a;
+    APBR_Albedo(o, uv);
+    APBR_Metal(o, uv);
+    APBR_Smoothness(o, uv);
+    APBR_Normal(o, uv);
+    APBR_Emission(o, uv);
+    APBR_Alpha(o, color);
 }
 
 #endif

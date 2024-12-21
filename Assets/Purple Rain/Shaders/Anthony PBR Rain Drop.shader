@@ -72,7 +72,6 @@ Shader "Anthony/Anthony PBR Rain Drop"
             
             // Get world normal up to mask rain drops
             float3 worldNormal = WorldNormalVector(i, o.Normal);
-
             float3 dropsNormal;
             float roughness;
             RainDrops(uv, worldNormal, dropsNormal, roughness);
