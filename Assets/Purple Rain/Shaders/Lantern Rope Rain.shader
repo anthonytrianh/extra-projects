@@ -30,7 +30,7 @@ Shader "Anthony/Lantern Rope Rain"
         _RainDropsNormalStrength ("Rain Normal Strength", Float) = 2
         _RainDropsAnimSpeed ("Rain Drops Animation Speed", Float) = 0.7
         _RainDropsAmount ("Rain Drops Amount", Range(0, 1)) = 1
-        _RainDropsRoughnessPower ("Rain Drops Roughness Power", Float) = 0.1
+        _RainDropsSmoothnessPower ("Rain Drops Smoothness Power", Float) = 0.1
     }
     
     CGINCLUDE
@@ -65,12 +65,11 @@ Shader "Anthony/Lantern Rope Rain"
         // Rain drops
         float3 worldNormal = WorldNormalVector(i, o.Normal);
         float3 dropsNormal;
-        float roughness;
-        RainDrops(uv, worldNormal, dropsNormal, roughness);
+        float drops;
+        RainDrops(i.worldPos, worldNormal, dropsNormal, drops);
         float3 baseNormal = o.Normal;
-        o.Normal =
-            normalize(float3(baseNormal.xy + dropsNormal.xy, baseNormal.z * dropsNormal.z));
-        o.Smoothness += (1 - roughness);
+        o.Normal = normalize(float3(baseNormal.xy + dropsNormal.xy, baseNormal.z * dropsNormal.z));
+        o.Smoothness = saturate(o.Smoothness + pow(drops, _RainDropsSmoothnessPower));
         
     }
     ENDCG

@@ -91,7 +91,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.48
     - _GlossyReflections: 1
-    - _Metallic: 0.16
+    - _Metallic: 0.389
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -99,13 +99,14 @@ Material:
     - _RainDropsAnimSpeed: 0.1
     - _RainDropsNormalStrength: 2
     - _RainDropsRoughnessPower: 0.1
+    - _RainDropsSmoothnessPower: 0.7
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+    - _Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionMovement: {r: -1, g: 0, b: 0, a: 0}
     - _EmissiveColorA: {r: 0.46585858, g: 0.21629149, b: 1.0592737, a: 1}

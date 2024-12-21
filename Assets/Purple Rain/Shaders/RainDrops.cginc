@@ -11,10 +11,13 @@ float4 _RainDropsTex_ST;
 float _RainDropsNormalStrength;
 float _RainDropsAnimSpeed;
 float _RainDropsAmount;
-float _RainDropsRoughnessPower;
+float _RainDropsSmoothnessPower;
+float _RainDropsScale;
 
-void RainDrops(float2 uv, float3 worldNormal, out float3 dropsNormal, out float roughness)
+void RainDrops(float3 worldPos, float3 worldNormal, out float3 dropsNormal, out float mask, float rain = 1)
 {
+    float2 uv = worldPos.xz * _RainDropsScale;
+    
     // 1. Animated rain drops
     float4 rainDropsSample = tex2D(_RainDropsTex, uv * _RainDropsTex_ST.xy + _RainDropsTex_ST.zw);
     // Normal: Unpack rg channels and remap from (0,1) to (-1,1)
@@ -38,7 +41,7 @@ void RainDrops(float2 uv, float3 worldNormal, out float3 dropsNormal, out float 
 
     // Ouputs
     dropsNormal = float3(rainDropsNormalOffset * rainMask, 1);
-    roughness = 1 - pow(rainMask, _RainDropsRoughnessPower);
+    mask = rainMask * rain;
 }
 
 #endif

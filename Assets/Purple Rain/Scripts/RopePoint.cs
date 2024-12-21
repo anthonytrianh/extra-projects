@@ -13,7 +13,7 @@ public class RopePoint : MonoBehaviour
     
     void Start()
     {
-        
+        UpdatePositionOnRope();
     }
 
     void Update()

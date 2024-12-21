@@ -34,10 +34,11 @@ Shader "Anthony/Anthony PBR Rain Drop"
         
         [Header(Raindrops)][Space]
         _RainDropsTex ("Rain Drops Texture", 2D) = "bump" {}
+        _RainDropsScale ("Rain Drops Scale", Float) = 1
         _RainDropsNormalStrength ("Rain Normal Strength", Float) = 2
         _RainDropsAnimSpeed ("Rain Drops Animation Speed", Float) = 0.7
         _RainDropsAmount ("Rain Drops Amount", Range(0, 1)) = 1
-        _RainDropsRoughnessPower ("Rain Drops Roughness Power", Float) = 0.1
+        _RainDropsSmoothnessPower ("Rain Drops Smoothness Power", Float) = 0.1
     }
     
     CGINCLUDE
@@ -73,10 +74,10 @@ Shader "Anthony/Anthony PBR Rain Drop"
             // Get world normal up to mask rain drops
             float3 worldNormal = WorldNormalVector(i, o.Normal);
             float3 dropsNormal;
-            float roughness;
-            RainDrops(uv, worldNormal, dropsNormal, roughness);
+            float drops;
+            RainDrops(i.worldPos, worldNormal, dropsNormal, drops);
 
-            o.Smoothness = 1 - roughness;
+            o.Smoothness = pow(drops, _RainDropsSmoothnessPower);
             o.Normal = dropsNormal;
         }
         

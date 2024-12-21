@@ -2,6 +2,44 @@
 #define RAIN_INCLUDED
 
 #include "UnityCG.cginc"
+#include "Wetness.cginc"
+#include "RainDrops.cginc"
+#include "RainDrips.cginc"
+
+/////////////////////////////////////////////
+// Material Parameters
+// -----------------------------------------
+// [Header(RippleMain)][Space]
+// _RipplesTex ("Ripples Texture", 2D) = "white" {}
+// _RippleContrast ("Ripple Contrast", Float) = 20
+// _RipplePeriod ("Ripple Period", Float) = 5
+// _RippleStrength ("Ripple Strength", Float) = 0.35
+// _RippleIntensity ("Ripple Intensity", Range(0, 1)) = 1
+//         
+// [Header(RippleParams)][Space]
+// _RipplesTimeScales ("Ripples Time Scales", Vector) = (1, 0.8, 0.92, 1.1)
+// _RipplesTimeOffsets ("Ripples Time Offsets", Vector) = (0, 0.2, 0.44, 0.67)
+// _RipplesWeightOffsets ("Ripples Weight Offsets", Vector) = (0, 0.25, 0.5, 0.75)
+// _RipplesTilings ("Ripples Tilings", Vector) = (20, 10, 5, 2)
+//         
+// [Header(RippleOffsets)][Space]
+// _RipplesOffset1 ("Ripple Offset 1", Vector) = (0, 0, 0, 0)
+// _RipplesOffset2 ("Ripple Offset 2", Vector) = (-0.5, 0.3, 0, 0)
+// _RipplesOffset3 ("Ripple Offset 3", Vector) = (0.44, 0.8, 0, 0)
+// _RipplesOffset4 ("Ripple Offset 4", Vector) = (0.55, -0.7, 0, 0)
+//         
+// [Header(RippleWind)][Space]
+// _WindRippleTex ("Wind Ripples Texture", 2D) = "bump" {}
+// _WindRippleParams1 ("Wind Ripples 1 Tiling (XY) Speed (ZW)", Vector) = (20, 17, .4, .02)
+// _WindRippleParams2 ("Wind Ripples 2 Tiling (XY) Speed (ZW)", Vector) = (5, 8, -.1, .4)
+// _WindRippleStrength ("Wind Strength Min Max", Vector) = (0.1, 0.5, 0, 0)
+// _WindRipple ("Wind Ripples", Range(0, 1)) = 1
+// _WindRippleOpacity ("Wind Ripple Opacity", Range(0, 1)) = 1
+
+/////////////////////////////////////////////
+//  Rain
+//------------------------------------------
+float _Rain;
 
 /////////////////////////////////////////////
 // Rain Ripple

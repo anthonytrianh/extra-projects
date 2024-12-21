@@ -101,7 +101,7 @@ Shader "Custom/Rain Ripples Masked"
             o.Alpha = c.a;
 
             ///////////////////////////////////
-            // Ripples
+            // Wind Ripples
             //////////////////////////////////
             float2 ripplesUV = i.worldPos.xz;
 

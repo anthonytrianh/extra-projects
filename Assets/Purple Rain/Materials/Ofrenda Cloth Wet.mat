@@ -88,11 +88,11 @@ Material:
     - _Emission: 1
     - _FlipY: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.15
+    - _Glossiness: 0
     - _GlossyReflections: 1
     - _GrungeContrast: 1.5
     - _GrungeCutoff: 0
-    - _GrungeOpacity: 0.53
+    - _GrungeOpacity: 0.724
     - _GrungeSmoothness: 0.228
     - _Height: 0
     - _InvertGrunge: 1
@@ -109,11 +109,11 @@ Material:
     - _UseParallax: 0
     - _VerticalGradient: 0
     - _Wetness: 0.99
-    - _WetnessColorDarken: 0.67
-    - _WetnessSaturation: 1.49
+    - _WetnessColorDarken: 0.45
+    - _WetnessSaturation: 1.68
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.75866187, g: 0.6542745, b: 0.7830189, a: 1}
+    - _Color: {r: 0.75686276, g: 0.654902, b: 0.78431374, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 0.2264151, g: 0.22336368, b: 0.22336368, a: 0.54509807}
     - _VerticalColorBot: {r: 0.5, g: 0.5, b: 0.5, a: 1}

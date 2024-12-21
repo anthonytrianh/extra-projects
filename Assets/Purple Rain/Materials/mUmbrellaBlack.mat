@@ -74,7 +74,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _RainDropsTex:
         m_Texture: {fileID: 2800000, guid: 75f60d2a5fa739c4899a823d17cccc48, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RoughnessTex:
         m_Texture: {fileID: 0}
@@ -107,6 +107,8 @@ Material:
     - _RainDropsAnimSpeed: 0.7
     - _RainDropsNormalStrength: 2
     - _RainDropsRoughnessPower: 0.1
+    - _RainDropsScale: 0.6
+    - _RainDropsSmoothnessPower: 0.1
     - _SmoothnessTextureChannel: 0
     - _Specular: 0.704
     - _SpecularHighlights: 1

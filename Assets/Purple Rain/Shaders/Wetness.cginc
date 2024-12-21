@@ -1,6 +1,17 @@
 #ifndef WETNESS_INCLUDED
 #define WETNESS_INCLUDED
 
+// -------------------------------------------
+//  Material params
+// -------------------------------------------
+// [Header(Wetness)][Space]
+// _WetnessSaturation ("Wet Saturation", Float) = 1
+// _WetnessColorDarken ("Wet Color Darken", Float) = 0.5
+// _Wetness ("Wetness", Range(0, 1)) = 0.5
+// // How water absorbent is the surface?
+// _Porousness ("Porousness", Float) = 0.2
+
+
 //////////////////////////////////////////////
 // Rain Wetness
 float _WetnessSaturation;

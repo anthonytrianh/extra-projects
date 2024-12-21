@@ -4,8 +4,7 @@ Shader "New Amplify Shader"
 {
 	Properties
 	{
-		_CameraDepthNormalsTexture("_CameraDepthNormalsTexture", 2D) = "white" {}
-
+		
 	}
 	
 	SubShader
@@ -44,7 +43,8 @@ Shader "New Amplify Shader"
 			#pragma fragment frag
 			#pragma multi_compile_instancing
 			#include "UnityCG.cginc"
-			
+			#include "UnityStandardUtils.cginc"
+
 
 			struct appdata
 			{
@@ -60,13 +60,12 @@ Shader "New Amplify Shader"
 				#ifdef ASE_NEEDS_FRAG_WORLD_POSITION
 				float3 worldPos : TEXCOORD0;
 				#endif
-				float4 ase_texcoord1 : TEXCOORD1;
+				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
 
-			uniform sampler2D _CameraDepthNormalsTexture;
-
+			
 			
 			v2f vert ( appdata v )
 			{
@@ -75,9 +74,6 @@ Shader "New Amplify Shader"
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 
-				float4 ase_clipPos = UnityObjectToClipPos(v.vertex);
-				float4 screenPos = ComputeScreenPos(ase_clipPos);
-				o.ase_texcoord1 = screenPos;
 				
 				float3 vertexValue = float3(0, 0, 0);
 				#if ASE_ABSOLUTE_VERTEX_POS
@@ -105,16 +101,9 @@ Shader "New Amplify Shader"
 				#ifdef ASE_NEEDS_FRAG_WORLD_POSITION
 				float3 WorldPosition = i.worldPos;
 				#endif
-				float4 screenPos = i.ase_texcoord1;
-				float4 ase_screenPosNorm = screenPos / screenPos.w;
-				ase_screenPosNorm.z = ( UNITY_NEAR_CLIP_VALUE >= 0 ) ? ase_screenPosNorm.z : ase_screenPosNorm.z * 0.5 + 0.5;
-				float depthDecodedVal5 = 0;
-				float3 normalDecodedVal5 = float3(0,0,0);
-				DecodeDepthNormal( tex2D( _CameraDepthNormalsTexture, ase_screenPosNorm.xy ), depthDecodedVal5, normalDecodedVal5 );
-				float3 viewToWorldDir7 = mul( UNITY_MATRIX_I_V, float4( normalDecodedVal5, 0 ) ).xyz;
 				
 				
-				finalColor = float4( viewToWorldDir7 , 0.0 );
+				finalColor = float4( BlendNormals( float3( 0,0,1 ) , float3( 0,0.5,1 ) ) , 0.0 );
 				return finalColor;
 			}
 			ENDCG
@@ -136,6 +125,7 @@ Node;AmplifyShaderEditor.SimpleMultiplyOpNode;2;-331.3186,86.12976;Inherit;False
 Node;AmplifyShaderEditor.TransformPositionNode;9;-448,336;Inherit;False;Object;World;False;Fast;True;1;0;FLOAT3;0,0,0;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleSubtractOpNode;10;-74.19836,247.5473;Inherit;False;2;0;FLOAT4;0,0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.TransformDirectionNode;7;-48,-176;Inherit;False;View;World;False;Fast;False;1;0;FLOAT3;0,0,0;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
+Node;AmplifyShaderEditor.BlendNormalsNode;11;-704,-480;Inherit;False;0;3;0;FLOAT3;0,0,1;False;1;FLOAT3;0,0.5,1;False;2;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;256,-16;Float;False;True;-1;2;ASEMaterialInspector;100;5;New Amplify Shader;0770190933193b94aaa3065e307002fa;True;Unlit;0;0;Unlit;2;True;True;4;1;False;;1;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;1;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;True;True;2;False;;True;4;False;;True;True;-1;False;;-1;False;;True;1;RenderType=Transparent=RenderType;True;2;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;1;Vertex Position,InvertActionOnDeselection;1;0;0;1;True;False;;False;0
 WireConnection;4;1;6;0
 WireConnection;5;0;4;0
@@ -145,6 +135,6 @@ WireConnection;9;0;8;0
 WireConnection;10;0;2;0
 WireConnection;10;1;9;0
 WireConnection;7;0;5;1
-WireConnection;0;0;7;0
+WireConnection;0;0;11;0
 ASEEND*/
-//CHKSM=37C86F0ABFFA360C3935A214A98B98B2DE49D43A
+//CHKSM=621AEB6ED2AD312D8B55520232A2C89F2B740AC9
