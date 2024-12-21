@@ -108,7 +108,7 @@ Material:
     - _UVSec: 0
     - _UseParallax: 0
     - _VerticalGradient: 0
-    - _Wetness: 0.82
+    - _Wetness: 0.99
     - _WetnessColorDarken: 0.67
     - _WetnessSaturation: 1.49
     - _ZWrite: 1

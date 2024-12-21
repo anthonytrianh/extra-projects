@@ -42,13 +42,7 @@ Shader "Anthony/Anthony PBR Rain Drop"
     
     CGINCLUDE
     #include "AnthonyPBR.cginc"
-
-    sampler2D _RainDropsTex;
-    float4 _RainDropsTex_ST;
-    float _RainDropsNormalStrength;
-    float _RainDropsAnimSpeed;
-    float _RainDropsAmount;
-    float _RainDropsRoughnessPower;
+    #include "RainDrops.cginc"
     
     ENDCG
     
@@ -75,40 +69,16 @@ Shader "Anthony/Anthony PBR Rain Drop"
             o.Emission = CalculateEmissiveColor(uv);
             o.Alpha = color.a;
 
-            //-----------------
-            // Rain drops
-            //----------------
-
-            // 1. Animated rain drops
-            float4 rainDropsSample = tex2D(_RainDropsTex, uv * _RainDropsTex_ST.xy + _RainDropsTex_ST.zw);
-            // Normal: Unpack rg channels and remap from (0,1) to (-1,1)
-            float2 rainDropsNormalOffset = (rainDropsSample.xy * 2 - 1) * _RainDropsNormalStrength;
-            // Animation: blue channel contains temporal offset mask
-            float rainDropsTime = (_Time.y * _RainDropsAnimSpeed) - rainDropsSample.b;
-            rainDropsTime = frac(rainDropsTime);
-            // Animated drop mask in alpha channel
-            float animMask = saturate(rainDropsSample.a * 2 - 1) * rainDropsTime;
-
-            // 2. Static rain drops
-            // Invert alpha channel for static rain drops
-            float staticMask = saturate((rainDropsSample.a * 2 - 0.5) * (-1));
-
-            // Final rain mask: combine static and animated
-            float rainMask = animMask + staticMask;
-
+            
             // Get world normal up to mask rain drops
             float3 worldNormal = WorldNormalVector(i, o.Normal);
-            float topMask = saturate(worldNormal.y) * _RainDropsAmount;
-            rainMask *= topMask;
 
-            // Normal output
-            float3 rainDropsNormal = float3(rainDropsNormalOffset * rainMask, 1);
-            
-            // Smoothness
-            float roughness = 1 - pow(rainMask, _RainDropsRoughnessPower);
+            float3 dropsNormal;
+            float roughness;
+            RainDrops(uv, worldNormal, dropsNormal, roughness);
 
             o.Smoothness = 1 - roughness;
-            o.Normal = rainDropsNormal;
+            o.Normal = dropsNormal;
         }
         
         ENDCG
