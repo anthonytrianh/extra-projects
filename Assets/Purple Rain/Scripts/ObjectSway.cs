@@ -35,9 +35,12 @@ public class ObjectSway : MonoBehaviour
     [ExecuteInEditMode]
     void Update()
     {
-        float rotationDelta = Mathf.Sin(Time.time * rotationRate + timeOffset) * rotationOffset;
-        desiredRotation = initialRotation + rotationAxis * rotationDelta;
+        if (Application.isPlaying)
+        {
+            float rotationDelta = Mathf.Sin(Time.time * rotationRate + timeOffset) * rotationOffset;
+            desiredRotation = initialRotation + rotationAxis * rotationDelta;
+            transform.eulerAngles = desiredRotation;
+        }
 
-        transform.eulerAngles = desiredRotation;
     }
 }
