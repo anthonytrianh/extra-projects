@@ -120,7 +120,7 @@ Material:
     - _RainDripsSmoothnessContrast: 1.2
     - _RainDripsStrength: 5
     - _RainDripsWorldScale: 0.5
-    - _RainDropsAmount: 10
+    - _RainDropsAmount: -7.86
     - _RainDropsAnimSpeed: 0.7
     - _RainDropsNormalStrength: 3
     - _RainDropsScale: 1
@@ -136,7 +136,7 @@ Material:
     - _VGlow: 0.267
     - _VGlowContrast: 3.21
     - _VerticalGradient: 1
-    - _Wetness: 0.9
+    - _Wetness: 0.95
     - _WetnessColorDarken: 0.5
     - _WetnessSaturation: 1
     - _ZWrite: 1

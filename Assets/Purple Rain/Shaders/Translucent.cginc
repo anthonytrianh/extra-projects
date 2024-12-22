@@ -33,7 +33,7 @@ inline fixed4 LightingTranslucent (SurfaceOutput s, fixed3 lightDir, fixed3 view
 
     // Add the two together.
     fixed4 c;
-    c.rgb = diffAlbedo + transAlbedo;
+    c.rgb = diffAlbedo + transAlbedo + s.Emission;
     c.a = _LightColor0.a * _SpecColor.a * spec * atten;
     return c;
 }

@@ -108,7 +108,7 @@ Material:
     - _RainDripsSmoothnessContrast: 1.2
     - _RainDripsStrength: 10
     - _RainDripsWorldScale: 0.5
-    - _RainDropsAmount: 10
+    - _RainDropsAmount: -10
     - _RainDropsAnimSpeed: 0.1
     - _RainDropsNormalStrength: 4
     - _RainDropsRoughnessPower: 0.1

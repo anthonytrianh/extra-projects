@@ -60,6 +60,7 @@ void RainDrips(float3 worldPos, float3 worldNormal, out float3 normal, out float
 
     // Drips mask contained in blue channel
     float dripsMaskBase = dripsSample.b;
+    
     // Round the mask so the drops looks more condensed
     float dripsMaskFast = round(dripsMaskBase);
     float3 dripsFast = float3(dripsMaskFast, _RainDripsSpeedFast.xy);

@@ -28,6 +28,32 @@ MonoBehaviour:
   lumContrib:
     overrideState: 1
     value: 0.58
+--- !u!114 &-7040278155309524005
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea510741d5c842b4bb9cb989edf86146, type: 3}
+  m_Name: RainOnLens
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  rainDropsTexture:
+    overrideState: 1
+    value: {fileID: 2800000, guid: 75f60d2a5fa739c4899a823d17cccc48, type: 3}
+    defaultState: 1
+  rainDropsScale:
+    overrideState: 0
+    value: 1
+  rainDropsNormalStrength:
+    overrideState: 0
+    value: 3
 --- !u!114 &-4613720461176963658
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1408,6 +1434,7 @@ MonoBehaviour:
   - {fileID: 1277215195036216970}
   - {fileID: -8471215346644224474}
   - {fileID: -4613720461176963658}
+  - {fileID: -7040278155309524005}
 --- !u!114 &769244015093276296
 MonoBehaviour:
   m_ObjectHideFlags: 3

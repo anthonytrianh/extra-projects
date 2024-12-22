@@ -10,6 +10,11 @@ Shader "Anthony/Foliage Wind Translucent"
     	_Cutoff ("Cutoff", Range(0, 1)) = 0.1
     	[Toggle(GREYSCALE_ALPHA)] _GreyscaleCutoff ("Greyscale as Alpha", Float) = 0
         
+    	[Header(Emission)][Space]
+        [Toggle(EMISSIVE)] _Emission ("Emission?", Float) = 0
+        _EmissiveTex("Emission Texture", 2D) = "black" {}
+        [HDR] _EmissiveColor("Emissive Color", Color) = (0, 0, 0, 0)
+    	
         [Header(Normals)][Space]
         _BumpTex("Normal Map", 2D) = "bump" {}
         _BumpStrength("Bump Strength", Float) = 1
@@ -69,7 +74,7 @@ Shader "Anthony/Foliage Wind Translucent"
         #pragma target 4.0
 
         #pragma shader_feature GREYSCALE_ALPHA
-
+		#pragma shader_feature EMISSIVE
         
         void surf_foliage(Input i, inout SurfaceOutput o)
         {

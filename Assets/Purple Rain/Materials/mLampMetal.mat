@@ -92,7 +92,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _BumpStrength: 2.9
+    - _BumpStrength: 2.35
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -118,7 +118,7 @@ Material:
     - _RainDripsWorldScale: 0.8
     - _RainDropsAmount: 10
     - _RainDropsAnimSpeed: 0.52
-    - _RainDropsNormalStrength: 1.14
+    - _RainDropsNormalStrength: 2
     - _RainDropsScale: 1
     - _RainDropsSmoothnessPower: 0.1
     - _RainSmoothnessPower: 1.04
@@ -129,8 +129,8 @@ Material:
     - _UVSec: 0
     - _UseParallax: 0
     - _VerticalGradient: 0
-    - _Wetness: 0.798
-    - _WetnessColorDarken: 0.77
+    - _Wetness: 0.74
+    - _WetnessColorDarken: 0.65
     - _WetnessSaturation: 1.11
     - _ZWrite: 1
     m_Colors:
