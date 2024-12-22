@@ -15,6 +15,22 @@ public class LightOscillate : MonoBehaviour
     [SerializeField] Vector2 lightRangeMinMax = new Vector2(10, 15);
     [SerializeField] float oscillateDuration = 2f;
     [SerializeField] AnimationCurve oscillateCurve;
+
+    [SerializeField] Renderer affectedObject;
+    [SerializeField] string lightParamName;
+    
+    private MaterialPropertyBlock mpb;
+    public MaterialPropertyBlock Mpb
+    {
+        get
+        {
+            if (mpb == null)
+            {
+                mpb = new MaterialPropertyBlock();
+            }
+            return mpb;
+        }
+    }
     
     #endregion
     
@@ -49,5 +65,18 @@ public class LightOscillate : MonoBehaviour
 
         light.intensity = lightIntensity;
         light.range = lightRange;
+        
+        if (affectedObject != null)
+        {
+            // Retrieve material property block from the renderer
+            //  which contains all the default values we set on the material of said renderer
+            affectedObject.GetPropertyBlock(Mpb);
+            
+            // Modify the temporary material property block
+            Mpb.SetFloat(lightParamName, curveAlpha);
+            
+            // Replace material property block in the renderer with our current one
+            affectedObject.SetPropertyBlock(Mpb);
+        }
     }
 }

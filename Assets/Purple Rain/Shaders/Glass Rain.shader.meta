@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 59c98ebccf6be524a94368aeaf48eca8
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _MainTex: {instanceID: 0}
+  - _RoughnessTex: {instanceID: 0}
+  - _BumpTex: {instanceID: 0}
+  - _EmissiveTex: {instanceID: 0}
+  - _ParallaxTex: {instanceID: 0}
+  - _GrungeTex: {instanceID: 0}
+  - _RainDropsTex: {fileID: 2800000, guid: 75f60d2a5fa739c4899a823d17cccc48, type: 3}
+  - _RainDripsTex: {fileID: 2800000, guid: 0f39edf345483e94d865a1a5c84a3ad0, type: 3}
+  - _RainDripMask: {fileID: 2800000, guid: 882c23b35aa6ca44cb911e053c800a3e, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

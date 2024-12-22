@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mLanternGlass
+  m_Shader: {fileID: 4800000, guid: 59c98ebccf6be524a94368aeaf48eca8, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - VERT_GRADIENT
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3001
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpTex:
+        m_Texture: {fileID: 2800000, guid: d61fc0de8fb735d49919e752d71fa325, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissiveTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GrungeTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RainDripMask:
+        m_Texture: {fileID: 2800000, guid: 882c23b35aa6ca44cb911e053c800a3e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RainDripsTex:
+        m_Texture: {fileID: 2800000, guid: 0f39edf345483e94d865a1a5c84a3ad0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RainDropsTex:
+        m_Texture: {fileID: 2800000, guid: 75f60d2a5fa739c4899a823d17cccc48, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RoughnessTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BumpScale: 1
+    - _BumpStrength: 0.1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _Emission: 0
+    - _FlipY: 0
+    - _Fresnel: 0.404
+    - _FresnelPower: 3.11
+    - _GlossMapScale: 1
+    - _Glossiness: 1
+    - _GlossyReflections: 1
+    - _GrungeContrast: 1.2
+    - _GrungeCutoff: 0.5
+    - _GrungeOpacity: 0
+    - _GrungeSmoothness: 0.15
+    - _Height: 0
+    - _IOR: 1.57
+    - _InvertGrunge: 0
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Opacity: 0.893
+    - _Parallax: 0.02
+    - _Porousness: 0
+    - _Rain: 1
+    - _RainDripsSmoothnessContrast: 1.2
+    - _RainDripsStrength: 5
+    - _RainDripsWorldScale: 0.5
+    - _RainDropsAmount: 10
+    - _RainDropsAnimSpeed: 0.7
+    - _RainDropsNormalStrength: 3
+    - _RainDropsScale: 1
+    - _RainDropsSmoothnessPower: 0.1
+    - _RainSmoothnessPower: 0.1
+    - _Reflectivity: 0.718
+    - _SmoothnessTextureChannel: 0
+    - _Specular: 0.252
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _UseParallax: 0
+    - _VGlow: 0.267
+    - _VGlowContrast: 3.21
+    - _VerticalGradient: 1
+    - _Wetness: 0.9
+    - _WetnessColorDarken: 0.5
+    - _WetnessSaturation: 1
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0.14147976, g: 0.1792453, b: 0.16178522, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _FresnelColor: {r: 0.23461843, g: 0, b: 0.5188679, a: 1}
+    - _RainDripMaskScale: {r: 1, g: 1.05, b: 1, a: 0}
+    - _RainDripsSpeedFast: {r: 0.25, g: 0.7, b: 0, a: 0}
+    - _RainDripsSpeedSlow: {r: 0.03, g: 0.125, b: 0, a: 0}
+    - _VGlowBot: {r: 0.7294118, g: 0.38431373, b: 1.2470589, a: 0}
+    - _VGlowTop: {r: 0, g: 0, b: 0, a: 0}
+    - _VerticalColorBot: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+    - _VerticalColorTop: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
