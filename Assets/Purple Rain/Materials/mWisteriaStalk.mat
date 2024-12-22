@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mWisteriaStalk
-  m_Shader: {fileID: 4800000, guid: bd36231627da971409ff62d7b1ad4cc1, type: 3}
+  m_Shader: {fileID: 4800000, guid: 732d366e88574df4e84b9ecc4ee949fb, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -60,6 +60,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _RainDripMask:
+        m_Texture: {fileID: 2800000, guid: 882c23b35aa6ca44cb911e053c800a3e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RainDripsTex:
+        m_Texture: {fileID: 2800000, guid: 0f39edf345483e94d865a1a5c84a3ad0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RainDropsTex:
+        m_Texture: {fileID: 2800000, guid: 75f60d2a5fa739c4899a823d17cccc48, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SSThickness:
         m_Texture: {fileID: 2800000, guid: 6cb403fce9f245f40b94440d8c03a74d, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -79,7 +91,18 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _SSDistortion: 0.34
+    - _Porousness: 0.2
+    - _Rain: 1
+    - _RainDripsSmoothnessContrast: 1.2
+    - _RainDripsStrength: 4
+    - _RainDripsWorldScale: 1
+    - _RainDropsAmount: 10
+    - _RainDropsAnimSpeed: 0.7
+    - _RainDropsNormalStrength: 3
+    - _RainDropsScale: 1
+    - _RainDropsSmoothnessPower: 0.1
+    - _RainSmoothnessPower: 0.1
+    - _SSDistortion: 1.25
     - _SSPower: 0.94
     - _SSScale: 2.38
     - _SmoothnessTextureChannel: 0
@@ -87,12 +110,18 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _Wetness: 0.5
+    - _WetnessColorDarken: 0.5
+    - _WetnessSaturation: 1
     - _WindDensity: 1.4
     - _WindStrength: 0.15
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.40223825, g: 0.7169812, b: 0.24801229, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RainDripMaskScale: {r: 1, g: 1.05, b: 1, a: 0}
+    - _RainDripsSpeedFast: {r: 0.25, g: 0.7, b: 0, a: 0}
+    - _RainDripsSpeedSlow: {r: 0.03, g: 0.125, b: 0, a: 0}
     - _SSSubColor: {r: 0.19998077, g: 0.5188679, b: 0.12027665, a: 1}
     - _SpecColor: {r: 0.5403696, g: 0.6603774, b: 0.48949805, a: 1}
     - _WindMovement: {r: 0.8, g: 1, b: 0, a: 0}

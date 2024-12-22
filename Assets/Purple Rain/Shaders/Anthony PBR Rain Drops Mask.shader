@@ -1,4 +1,4 @@
-Shader "Anthony/Anthony PBR Rain"
+Shader "Anthony/Anthony PBR Rain Drops Mask"
 {
     Properties
     {
@@ -55,10 +55,11 @@ Shader "Anthony/Anthony PBR Rain"
          [Header(Raindrops)][Space]
          _RainDropsTex ("Rain Drops Texture", 2D) = "bump" {}
          _RainDropsScale ("Rain Drops Scale", Float) = 1
-         _RainDropsNormalStrength ("Rain Normal Strength", Float) = 3
+         _RainDropsNormalStrength ("Rain Normal Strength", Float) = 2
          _RainDropsAnimSpeed ("Rain Drops Animation Speed", Float) = 0.7
          _RainDropsAmount ("Rain Drops Amount", Float) = 10
          _RainDropsSmoothnessPower ("Rain Drops Smoothness Power", Float) = 0.1
+        _RainDropsMeshMask ("Rain Drops Mesh Mask", 2D) = "white" {}
         
         [Header(Raindrips)][Space]
         _RainDripsTex ("Rain Drips Texture", 2D) = "bump" {}
@@ -67,7 +68,7 @@ Shader "Anthony/Anthony PBR Rain"
         _RainDripMaskScale ("Rain Drip Mask Scale", Vector) = (1, 1.05, 1, 0)
         _RainDripsSpeedFast ("Rain Drip Speed Min Max", Vector) = (0.25, 0.7, 0, 0)
         _RainDripsSpeedSlow ("Rain Drip Speed Min Max", Vector) = (0.03, 0.125, 0, 0)
-        _RainDripsStrength ("Rain Drips Strength", Float) = 4
+        _RainDripsStrength ("Rain Drips Strength", Float) = 1
         _RainDripsSmoothnessContrast ("Rain Drips Smoothness Contrast", Float) = 1.2
     }
     
@@ -129,6 +130,7 @@ Shader "Anthony/Anthony PBR Rain"
             //------------------------------------
             // Rain
             //------------------------------------
+            rainDropsMeshUVs = uv;
             float3 worldPos     = i.worldPos;
             float3 worldNormal  = WorldNormalVector(i, o.Normal);
 

@@ -1,6 +1,8 @@
 #ifndef RAIN_INCLUDED
 #define RAIN_INCLUDED
 
+#include <UnityStandardUtils.cginc>
+
 #include "UnityCG.cginc"
 #include "Wetness.cginc"
 #include "RainDrops.cginc"
@@ -40,6 +42,7 @@
 //  Rain
 //------------------------------------------
 float _Rain;
+float _RainSmoothnessPower;
 
 /////////////////////////////////////////////
 // Rain Ripple
@@ -153,5 +156,69 @@ inline float3 WindRipple(float2 worldUV)
     float3 windRipplesNormal = normalize(float3(normalXY, normalZ));
     return lerp(float3(0, 0, 1), windRipplesNormal, _WindRippleOpacity);
 }
+
+//------------------------------------------------------
+//      Rain
+//------------------------------------------------------
+
+void WeatherRain(float3 worldPos, float3 worldNormal, float3 albedo, float3 normal, float specular, float smoothness,
+                    out float3 outColor, out float3 outNormal, out float outSpecular, out float outSmoothness)
+{
+    //------------------------------------
+    // Rain
+    //------------------------------------
+    // Input params
+    float raininess = _Rain;
+    float porousness = _Porousness;
+
+    // Function outputs
+    float3 dropsNormal, dripsNormal;
+    float dropsMask, dripsMask;
+    float3 wetColor;
+    float wetSpecular, wetSmoothness;
+        
+    RainDrops(worldPos, worldNormal, dropsNormal, dropsMask, raininess);
+    RainDrips(worldPos, worldNormal, dripsNormal, dripsMask, porousness, raininess);
+
+    float3 dripsAndDropsNormalsBlended = BlendNormals(dropsNormal, dripsNormal);
+    float dripsAndDropsMask = saturate(dropsMask + dripsMask);
+
+    float3 dripsAndDropsNormals = lerp(normal, dripsAndDropsNormalsBlended, dripsAndDropsMask);
+
+    // Wetness
+    float wetness = _Wetness + dripsAndDropsMask;
+    Wetness(wetness, albedo, specular, smoothness, _Porousness, wetColor, wetSpecular, wetSmoothness);
+        
+    // Outputs
+    outNormal = dripsAndDropsNormals;
+    outColor = wetColor;
+    outSpecular = wetSpecular;
+    outSmoothness = lerp(wetSmoothness, pow(dripsAndDropsMask, _RainSmoothnessPower), dripsAndDropsMask);
+}
+
+#define WEATHER_RAIN(i, o) float3 worldPos = i.worldPos; \
+    float3 worldNormal  = WorldNormalVector(i, o.Normal); \
+    float3 outColor;\
+    float3 outNormal;\
+    float outSmoothness;\
+    float outSpecular;\
+    WeatherRain(worldPos, worldNormal, o.Albedo, o.Normal, o.Specular, o.Smoothness, outColor, outNormal, outSpecular, outSmoothness);\
+
+#define WEATHER_RAIN_Gloss(i, o) float3 worldPos = i.worldPos; \
+    float3 worldNormal  = WorldNormalVector(i, o.Normal); \
+    float3 outColor;\
+    float3 outNormal;\
+    float outSmoothness;\
+    float outSpecular;\
+    WeatherRain(worldPos, worldNormal, o.Albedo, o.Normal, o.Specular, o.Gloss, outColor, outNormal, outSpecular, outSmoothness);\
+    o.Albedo = outColor;\
+    o.Normal = outNormal;\
+    o.Gloss = outSmoothness;\
+    o.Specular = outSpecular;
+
+#define RAIN_OutputsStandardSpecular o.Albedo = outColor;\
+    o.Normal = outNormal;\
+    o.Smoothness = outSmoothness;\
+    o.Specular = outSpecular;
 
 #endif

@@ -94,12 +94,13 @@ Shader "Anthony/Anthony PBR Wet"
             #endif
 
             float4 color = CalculateAlbedo(uv);
-            o.Albedo = CalculateWetColor(color);
-            o.Specular = CalculateWetSpecular(_Specular);
-            o.Smoothness = CalculateWetSmoothness(CalculateSmoothness(uv));
             o.Normal = CalculateNormals(uv);
             o.Emission = CalculateEmissiveColor(uv);
             o.Alpha = color.a;
+        
+            o.Albedo = CalculateWetColor(color, _Wetness, _Porousness) * 1;
+            o.Specular = CalculateWetSpecular(_Specular);
+            o.Smoothness = CalculateWetSmoothness(CalculateSmoothness(uv));
 
             // Grunge
             o.Albedo = CalculateGrungeColor(i.worldPos.xz, o.Albedo);

@@ -27,11 +27,11 @@ float3 Saturation(float3 color, float saturation)
 }
 
 // Wet surfaces have more saturated and darker colors
-float3 CalculateWetColor(float3 color)
+float3 CalculateWetColor(float3 color, float wetness, float porousness)
 {
     float3 baseColor = color;
     float3 wetColor = saturate(Saturation(color, _WetnessSaturation)) * _WetnessColorDarken;
-    float absorption = _Wetness * _Porousness;
+    float absorption = wetness * porousness;
     return lerp(baseColor, wetColor, absorption);
 }
 
@@ -46,5 +46,13 @@ float CalculateWetSpecular(float specular)
 {
     return lerp(specular, 0.3, _Wetness);
 }
+
+void Wetness(float mask, float3 color, float specular, float smoothness, float porousness, out float3 outColor, out float outSpecular, out float outSmoothness)
+{
+    outColor        = CalculateWetColor(color, mask, porousness);
+    outSpecular     = CalculateWetSpecular(specular);
+    outSmoothness   = CalculateWetSmoothness(smoothness);
+}
+
 
 #endif

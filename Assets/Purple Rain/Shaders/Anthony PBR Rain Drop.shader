@@ -75,7 +75,7 @@ Shader "Anthony/Anthony PBR Rain Drop"
             float3 worldNormal = WorldNormalVector(i, o.Normal);
             float3 dropsNormal;
             float drops;
-            RainDrops(i.worldPos, worldNormal, dropsNormal, drops);
+            RainDrops(i.worldPos, worldNormal, dropsNormal, drops, 1);
 
             o.Smoothness = pow(drops, _RainDropsSmoothnessPower);
             o.Normal = dropsNormal;

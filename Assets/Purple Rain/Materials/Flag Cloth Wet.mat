@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Flag Cloth Wet
-  m_Shader: {fileID: 4800000, guid: b4575468e8ceb0440ad45950cf8b567a, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2fb3ad418aa14f74b9adca93cfae7afe, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - EMISSIVE
@@ -81,6 +81,14 @@ Material:
         m_Texture: {fileID: 2800000, guid: 0f39edf345483e94d865a1a5c84a3ad0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _RainDropsMeshMask:
+        m_Texture: {fileID: 2800000, guid: cb733327ed3daa7439e2e4933eab8f08, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RainDropsTex:
+        m_Texture: {fileID: 2800000, guid: 75f60d2a5fa739c4899a823d17cccc48, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _RoughnessTex:
         m_Texture: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
@@ -107,10 +115,17 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Porousness: 0.9
+    - _Porousness: 0.79
+    - _Rain: 1
     - _RainDripsSmoothnessContrast: 0.69
-    - _RainDripsStrength: 0.49
-    - _RainDripsWorldScale: 0.62
+    - _RainDripsStrength: 2.5
+    - _RainDripsWorldScale: 0.5
+    - _RainDropsAmount: 10
+    - _RainDropsAnimSpeed: 0.7
+    - _RainDropsNormalStrength: 2
+    - _RainDropsScale: 1
+    - _RainDropsSmoothnessPower: 0.2
+    - _RainSmoothnessPower: 1.74
     - _RainSurfacePermeable: 0.872
     - _SmoothnessTextureChannel: 0
     - _Specular: 0
@@ -119,7 +134,7 @@ Material:
     - _UVSec: 0
     - _UseParallax: 0
     - _VerticalGradient: 0
-    - _Wetness: 0.99
+    - _Wetness: 1
     - _WetnessColorDarken: 0.52
     - _WetnessSaturation: 1.49
     - _ZWrite: 1

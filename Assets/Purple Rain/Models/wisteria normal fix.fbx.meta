@@ -18,7 +18,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Wisteria
-    second: {fileID: 2100000, guid: 187f376ff07445041bd7ce999e7b0eca, type: 2}
+    second: {fileID: 2100000, guid: 7c3b0926493668540ba807ef7663ffc9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

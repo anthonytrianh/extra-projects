@@ -7,10 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mRopeWire
-  m_Shader: {fileID: 4800000, guid: 30c08945de6b7fa48acbb33c5a9851fb, type: 3}
+  m_Name: Wisteria Rain
+  m_Shader: {fileID: 4800000, guid: 732d366e88574df4e84b9ecc4ee949fb, type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _EMISSION_MAP
+  - _RENDERING_CUTOUT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,12 +22,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 2800000, guid: 2a967602be43d8942827ee2039fcc85d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpTex:
-        m_Texture: {fileID: 2800000, guid: d0f0cdd275de5c742a49db8cdb09268a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5947bece9a71db742abbbd333ff13db4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,27 +46,27 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DetailTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _EmissiveMask:
-        m_Texture: {fileID: 2800000, guid: b5ac7f74ced51244c9c9ef6f8281ea33, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissiveTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 4}
-        m_Offset: {x: 0.05, y: 0}
+        m_Texture: {fileID: 2800000, guid: 9067e9898784bb44c8e97fac98bd07e9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MetallicTex:
+    - _MetallicMap:
+        m_Texture: {fileID: 2800000, guid: 2a967602be43d8942827ee2039fcc85d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -81,56 +87,81 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RainDropsTex:
-        m_Texture: {fileID: 2800000, guid: c15f3f589df191f48914945c70306a7f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 75f60d2a5fa739c4899a823d17cccc48, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _RoughnessTex:
+    - _SSThickness:
+        m_Texture: {fileID: 2800000, guid: 5947bece9a71db742abbbd333ff13db4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SmoothnessMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TranslucencyMap:
+        m_Texture: {fileID: 2800000, guid: 2a967602be43d8942827ee2039fcc85d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude: 0.16
+    - _AlphaCutoff: 0.846
     - _BumpScale: 1
-    - _BumpStrength: 1.22
-    - _Cutoff: 0.5
+    - _BumpStrength: 1
+    - _Cutoff: 0.598
+    - _DetailBumpScale: 5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.244
+    - _Glossiness: 0.63
     - _GlossyReflections: 1
-    - _Metallic: 0.389
+    - _GreyscaleCutoff: 0
+    - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Porousness: 0
+    - _Porousness: 0.375
     - _Rain: 1
     - _RainDripsSmoothnessContrast: 1.2
-    - _RainDripsStrength: 10
-    - _RainDripsWorldScale: 0.5
+    - _RainDripsStrength: 3
+    - _RainDripsWorldScale: 0.3
     - _RainDropsAmount: 10
     - _RainDropsAnimSpeed: 0.1
-    - _RainDropsNormalStrength: 4
-    - _RainDropsRoughnessPower: 0.1
-    - _RainDropsScale: 3
-    - _RainDropsSmoothnessPower: -2.75
-    - _RainSmoothnessPower: 0.23
+    - _RainDropsNormalStrength: 1
+    - _RainDropsScale: 1
+    - _RainDropsSmoothnessPower: 0.1
+    - _RainSmoothnessPower: 0.57
+    - _SSDistortion: 0.97
+    - _SSPower: 0.83
+    - _SSS: 0.535
+    - _SSScale: 1.49
+    - _ShadowsCulling: 1
+    - _Smoothness: 0.38
     - _SmoothnessTextureChannel: 0
-    - _Specular: 0.171
+    - _Specular: 0.33
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _TranslucencyPower: 0.5
+    - _TranslucencyPowerScale: 1.52
+    - _TranslucencyScale: 0.84
     - _UVSec: 0
-    - _Wetness: 0.798
-    - _WetnessColorDarken: 0.5
-    - _WetnessSaturation: 1.5
+    - _Wetness: 0.77
+    - _WetnessColorDarken: 0.42
+    - _WetnessSaturation: 1.65
+    - _WindDensity: 1.4
+    - _WindStrength: 0.18
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+    - _Color: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+    - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EmissionMovement: {r: -1, g: 0, b: 0, a: 0}
-    - _EmissiveColorA: {r: 0.46585858, g: 0.21629149, b: 1.0592737, a: 1}
-    - _EmissiveColorB: {r: 0.02157898, g: 0.018155923, b: 0.084905684, a: 1}
-    - _RainDripMaskScale: {r: 1, g: 2, b: 1, a: 0}
-    - _RainDripsSpeedFast: {r: 0.1, g: 0.5, b: 0, a: 0}
-    - _RainDripsSpeedSlow: {r: 0.03, g: 0.125, b: 0, a: 0}
+    - _RainDripMaskScale: {r: 1, g: 1.05, b: 1, a: 0}
+    - _RainDripsSpeedFast: {r: 0.1, g: 0.4, b: 0, a: 0}
+    - _RainDripsSpeedSlow: {r: 0.02, g: 0.06, b: 0, a: 0}
+    - _SSSubColor: {r: 0.5065559, g: 0.29239345, b: 0.7264151, a: 1}
+    - _SpecColor: {r: 0.8877913, g: 0.8345199, b: 0.9150943, a: 1}
+    - _SpecularTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Tint: {r: 1, g: 1, b: 1, a: 1}
+    - _TranslucencyColor: {r: 1.0610019, g: 0.5759162, b: 2, a: 1}
+    - _WindMovement: {r: 0.8, g: 1, b: 0, a: 0}
+    - _WindScale: {r: 2, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -3,6 +3,18 @@
 
 #include "UnityCG.cginc"
 
+// [Header(Raindrops)][Space]
+// _RainDripsTex ("Rain Drips Texture", 2D) = "bump" {}
+// _RainDripsWorldScale ("Rain Drips World Scale", Float) = 1
+// _RainDripMask ("Rain Drip Mask", 2D) = "black" {}
+// _RainDripMaskScale ("Rain Drip Mask Scale", Vector) = (1, 1.05, 1, 0)
+// _RainDripsSpeedFast ("Rain Drip Speed Min Max", Vector) = (0.25, 0.7, 0, 0)
+// _RainDripsSpeedSlow ("Rain Drip Speed Min Max", Vector) = (0.03, 0.125, 0, 0)
+// _RainSurfacePermeable ("Rain Surface Permeability", Range(0, 1)) = 0.3
+// _RainDripsStrength ("Rain Drips Strength", Float) = 1
+// _RainDripsSmoothnessContrast ("Rain Drips Smoothness Contrast", Float) = 1.2
+
+
 //////////////////////////////////////////////
 // Rain Drips
 
@@ -16,7 +28,7 @@ float _RainSurfacePermeable;
 float _RainDripsStrength;
 float _RainDripsSmoothnessContrast;
 
-void RainDrips(float3 worldPos, float3 worldNormal, out float3 normal, out float mask, float rain = 1)
+void RainDrips(float3 worldPos, float3 worldNormal, out float3 normal, out float mask, float porousness = 0.5, float rain = 1)
 {
     //----------------------------------
     // Rain drips
@@ -52,7 +64,7 @@ void RainDrips(float3 worldPos, float3 worldNormal, out float3 normal, out float
     float dripsMaskFast = round(dripsMaskBase);
     float3 dripsFast = float3(dripsMaskFast, _RainDripsSpeedFast.xy);
     float3 dripsSlow = float3(dripsMaskBase, _RainDripsSpeedSlow.xy);
-    float3 dripsMovement = lerp(dripsFast, dripsSlow, _RainSurfacePermeable);
+    float3 dripsMovement = lerp(dripsFast, dripsSlow, porousness);
 
     float permeability = lerp(dripsMovement.y, dripsMovement.z, temporalOffset); 
     timeOffset *= permeability;

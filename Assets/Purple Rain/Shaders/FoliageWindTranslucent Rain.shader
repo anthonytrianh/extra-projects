@@ -1,4 +1,4 @@
-Shader "Anthony/Foliage Wind Translucent"
+Shader "Anthony/Foliage Wind Translucent Rain"
 {
     Properties
     {
@@ -33,6 +33,35 @@ Shader "Anthony/Foliage Wind Translucent"
 		_SSDistortion ("Subsurface Distortion", Float) = 0.0
 		_SSScale ("Subsurface Scale", Float) = 0.5
 		[HDR] _SSSubColor ("Subsurface Color", Color) = (1.0, 1.0, 1.0, 1.0)
+    	
+    	[Header(Rain)] [Space]
+        _Rain ("Rain", Range(0, 1)) = 1
+        _RainSmoothnessPower ("Rain Smoothness Power", Float) = 0.1
+        
+        [Header(Wetness)][Space]
+        _WetnessSaturation ("Wet Saturation", Float) = 1
+        _WetnessColorDarken ("Wet Color Darken", Float) = 0.5
+        _Wetness ("Wetness", Range(0, 1)) = 0.5
+        // How water absorbent is the surface?
+        _Porousness ("Porousness", Range(0, 1)) = 0.2
+        
+         [Header(Raindrops)][Space]
+         _RainDropsTex ("Rain Drops Texture", 2D) = "bump" {}
+         _RainDropsScale ("Rain Drops Scale", Float) = 1
+         _RainDropsNormalStrength ("Rain Normal Strength", Float) = 3
+         _RainDropsAnimSpeed ("Rain Drops Animation Speed", Float) = 0.7
+         _RainDropsAmount ("Rain Drops Amount", Float) = 10
+         _RainDropsSmoothnessPower ("Rain Drops Smoothness Power", Float) = 0.1
+        
+        [Header(Raindrips)][Space]
+        _RainDripsTex ("Rain Drips Texture", 2D) = "bump" {}
+        _RainDripsWorldScale ("Rain Drips World Scale", Float) = 1
+        _RainDripMask ("Rain Drip Mask", 2D) = "black" {}
+        _RainDripMaskScale ("Rain Drip Mask Scale", Vector) = (1, 1.05, 1, 0)
+        _RainDripsSpeedFast ("Rain Drip Speed Min Max", Vector) = (0.25, 0.7, 0, 0)
+        _RainDripsSpeedSlow ("Rain Drip Speed Min Max", Vector) = (0.03, 0.125, 0, 0)
+        _RainDripsStrength ("Rain Drips Strength", Float) = 4
+        _RainDripsSmoothnessContrast ("Rain Drips Smoothness Contrast", Float) = 1.2
     }
     
     CGINCLUDE
@@ -40,6 +69,7 @@ Shader "Anthony/Foliage Wind Translucent"
     #include "AnthonyPBR.cginc"
     #include "Translucent.cginc"
     #include "Wind.cginc"
+    #include "Rain.cginc"
 
     float _Cutoff;
 
@@ -69,7 +99,6 @@ Shader "Anthony/Foliage Wind Translucent"
         #pragma target 4.0
 
         #pragma shader_feature GREYSCALE_ALPHA
-
         
         void surf_foliage(Input i, inout SurfaceOutput o)
         {
@@ -90,9 +119,10 @@ Shader "Anthony/Foliage Wind Translucent"
     		#ifdef GREYSCALE_ALPHA
 			clip(tex2D(_MainTex, uv).r - _Cutoff);
 			#endif
+
+			// Rain
+    		WEATHER_RAIN_Gloss(i, o);
     	
-    	
-            //o.Albedo = i.debug;
         }
         
         ENDCG

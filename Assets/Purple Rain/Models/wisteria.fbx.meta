@@ -3,22 +3,7 @@ guid: e1d2637363498184a84b0ff642349604
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Main Stalk
-    second: {fileID: 2100000, guid: 6cf64e83a9e760d459849d151e97764a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Stalk
-    second: {fileID: 2100000, guid: 6cf64e83a9e760d459849d151e97764a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wisteria
-    second: {fileID: 2100000, guid: 187f376ff07445041bd7ce999e7b0eca, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -64,7 +49,7 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    keepQuads: 1
+    keepQuads: 0
     weldVertices: 1
     bakeAxisConversion: 0
     preserveHierarchy: 0

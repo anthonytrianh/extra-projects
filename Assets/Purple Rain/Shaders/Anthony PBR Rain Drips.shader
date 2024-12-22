@@ -32,7 +32,7 @@ Shader "Anthony/Anthony PBR Rain Drips"
         _VerticalColorTop ("Color Top", Color) = (1,1,1,1)
         _VerticalColorBot ("Color Bottom", Color) = (0.5, 0.5, 0.5, 1)
         
-        [Header(Raindrops)][Space]
+        [Header(Raindrips)][Space]
         _RainDripsTex ("Rain Drips Texture", 2D) = "bump" {}
         _RainDripsWorldScale ("Rain Drips World Scale", Float) = 1
         _RainDripMask ("Rain Drip Mask", 2D) = "black" {}
@@ -76,7 +76,7 @@ Shader "Anthony/Anthony PBR Rain Drips"
             float3 worldNormal = WorldNormalVector(i, o.Normal);
             float3 dripsNormal;
             float dripsSmoothness;
-            RainDrips(i.worldPos, worldNormal, dripsNormal, dripsSmoothness);
+            RainDrips(i.worldPos, worldNormal, dripsNormal, dripsSmoothness, _RainSurfacePermeable);
 
             o.Normal = dripsNormal;
             o.Smoothness = dripsSmoothness;

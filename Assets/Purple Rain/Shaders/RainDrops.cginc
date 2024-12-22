@@ -3,6 +3,15 @@
 
 #include "UnityCG.cginc"
 
+// [Header(Raindrops)][Space]
+// _RainDropsTex ("Rain Drops Texture", 2D) = "bump" {}
+// _RainDropsScale ("Rain Drops Scale", Float) = 1
+// _RainDropsNormalStrength ("Rain Normal Strength", Float) = 2
+// _RainDropsAnimSpeed ("Rain Drops Animation Speed", Float) = 0.7
+// _RainDropsAmount ("Rain Drops Amount", Range(0, 1)) = 1
+// _RainDropsSmoothnessPower ("Rain Drops Smoothness Power", Float) = 0.1
+
+
 //////////////////////////////////////////////
 // Rain Drops
 
@@ -13,6 +22,9 @@ float _RainDropsAnimSpeed;
 float _RainDropsAmount;
 float _RainDropsSmoothnessPower;
 float _RainDropsScale;
+
+sampler2D _RainDropsMeshMask;
+float2 rainDropsMeshUVs; 
 
 void RainDrops(float3 worldPos, float3 worldNormal, out float3 dropsNormal, out float mask, float rain = 1)
 {
@@ -30,18 +42,21 @@ void RainDrops(float3 worldPos, float3 worldNormal, out float3 dropsNormal, out 
 
     // 2. Static rain drops
     // Invert alpha channel for static rain drops
-    float staticMask = saturate((rainDropsSample.a * 2 - 0.5) * (-1));
+    float staticMask = saturate(pow((rainDropsSample.a * 2 - 0.5) * (-1), _RainDropsAmount));
 
     // Final rain mask: combine static and animated
-    float rainMask = animMask + staticMask;
+    float rainDropsFinalMask = animMask + staticMask;
 
     // Get world normal up to mask rain drops
-    float topMask = saturate(worldNormal.y) * _RainDropsAmount;
-    rainMask *= topMask;
-
+    float topMask = saturate(worldNormal.y) * rain;
+    rainDropsFinalMask *= topMask;
+    // Mesh mask (some faces should have rain drops and some should not)
+    float meshMask = tex2D(_RainDropsMeshMask, rainDropsMeshUVs);
+    rainDropsFinalMask *= meshMask;
+    
     // Ouputs
-    dropsNormal = float3(rainDropsNormalOffset * rainMask, 1);
-    mask = rainMask * rain;
+    dropsNormal = float3(rainDropsNormalOffset * rainDropsFinalMask, 1);
+    mask = rainDropsFinalMask;
 }
 
 #endif
