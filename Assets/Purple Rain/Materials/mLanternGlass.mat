@@ -148,7 +148,7 @@ Material:
     - _RainDripMaskScale: {r: 1, g: 1.05, b: 1, a: 0}
     - _RainDripsSpeedFast: {r: 0.25, g: 0.7, b: 0, a: 0}
     - _RainDripsSpeedSlow: {r: 0.03, g: 0.125, b: 0, a: 0}
-    - _VGlowBot: {r: 0.7294118, g: 0.38431373, b: 1.2470589, a: 0}
+    - _VGlowBot: {r: 0.31868795, g: 0.13039604, b: 0.9424085, a: 0}
     - _VGlowTop: {r: 0, g: 0, b: 0, a: 0}
     - _VerticalColorBot: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
     - _VerticalColorTop: {r: 1, g: 1, b: 1, a: 1}

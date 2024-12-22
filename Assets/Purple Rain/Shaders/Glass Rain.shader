@@ -115,6 +115,7 @@ Shader "Anthony/Glass Rain"
         Blend SrcAlpha OneMinusSrcAlpha
         ZWrite On
         
+        
         GrabPass
         {
             "_BackgroundTex"
